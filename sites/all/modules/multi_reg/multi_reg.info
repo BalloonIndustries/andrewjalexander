@@ -1,0 +1,5 @@
+name = Multiple Registration
+description = Allows interfacing with Entity Registration to allow for multiple registrations from a single webform
+core = 7.x
+dependencies[] = registration
+package = Registration

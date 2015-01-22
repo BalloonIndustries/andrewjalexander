@@ -1,0 +1,198 @@
+<?php
+
+function pamfax_menu() {
+  $items = array();
+  $items['admin/config/media/pamfax'] = array(
+    'title' => 'Pamfax settings',
+    'description' => 'Settings for the Pamfax module',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('pamfax_admin_form'),
+    'access arguments' => array('administer pamfax settings'),
+    'type' => MENU_NORMAL_ITEM,
+   );
+  return $items;
+}
+
+/**
+ * Implements hook_permission().
+ */
+function pamfax_permission() {
+return array(
+'administer pamfax settings' => array(
+'title' => t('Administer Pamfax Settings'),
+)
+);
+}
+
+/**
+ * Admin settings form.
+ */
+function pamfax_admin_form($configuration) {
+  $form['pamfax_api_url'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Pamfax API URL'),
+    '#description' => t('The URL for the Pamfax API'),
+    '#size' => 40,
+    '#maxlength' => 255,
+    '#default_value' => variable_get('pamfax_api_url'),
+  );
+  $form['pamfax_api_key'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Pamfax API Key'),
+    '#description' => t('The Pamfax API Key'),
+    '#size' => 40,
+    '#maxlength' => 255,
+    '#default_value' => variable_get('pamfax_api_key'),
+  );
+  $form['pamfax_secret_word'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Pamfax Secret Word'),
+    '#description' => t('The Pamfax Secret Word'),
+    '#size' => 40,
+    '#maxlength' => 255,
+    '#default_value' => variable_get('pamfax_secret_word'),
+  );
+  $form['pamfax_username'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Pamfax Username'),
+    '#description' => t('The Pamfax Username'),
+    '#size' => 40,
+    '#maxlength' => 255,
+    '#default_value' => variable_get('pamfax_username'),
+  );
+  $form['pamfax_user_password'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Pamfax User Password'),
+    '#description' => t('The Pamfax User Password'),
+    '#size' => 40,
+    '#maxlength' => 255,
+    '#default_value' => variable_get('pamfax_user_password'),
+  );
+return system_settings_form($form);
+}
+
+function pamfax_version_callback() {
+  return TRUE;
+}
+
+/**
+ * Implement hook_rules_action_info().
+ */
+function pamfax_rules_action_info() {
+  return array(
+    'pamfax_rules_action_send_fax' => array(
+      'label' => t('Send Fax'),
+      'group' => t('Pamfax'),
+      'parameter' => array(
+      'Fax Number' => array(
+        'type' => 'text',
+        'label' => t('Fax Number'),
+        'description' => t('Fax number to send to.'),
+      ),
+      'Fax Receiver' => array(
+        'type' => 'text',
+        'label' => t('Fax Receiver'),
+        'description' => t('Person or organization that will be receiving the fax.'),
+'allow null' => TRUE,
+'optional' => TRUE,
+      ),
+      'Body Field' => array(
+        'type' => 'text',
+        'label' => t('Body Field'),
+        'description' => t('The body field.'),
+      ),
+      'File Field' => array(
+        'type' => '*',
+        'label' => t('File Field'),
+        'description' => t('The file field.'),
+      ),
+    ),
+),
+  );
+}
+
+function pamfax_rules_action_send_fax($phone, $receiver, $body, $files) {
+
+if(empty($phone)) {
+return false;
+}
+
+$phone = "+" + $phone;
+
+if(empty($body) && empty($files)) {
+return false;
+}
+
+$pamfax_api_url = variable_get('pamfax_api_url');
+$pamfax_api_key = variable_get('pamfax_api_key');
+$pamfax_secret_word = variable_get('pamfax_secret_word');
+$pamfax_username = variable_get('pamfax_username');
+$pamfax_user_password = variable_get('pamfax_user_password');
+
+
+// include the PamFax API client and set your credentials
+if ($path = libraries_get_path('pamfax')) {
+require_once($path . '/pamfax_api.php');
+}
+
+
+// include the PamFax API client and set your credentials
+$GLOBALS['PAMFAX_API_URL']         = $pamfax_api_url;
+$GLOBALS['PAMFAX_API_APPLICATION'] = $pamfax_api_key;
+$GLOBALS['PAMFAX_API_SECRET_WORD'] = $pamfax_secret_word;
+// tell the API client to create objects from returned XML automatically
+$GLOBALS['PAMFAX_API_MODE']        = ApiClient::API_MODE_OBJECT;
+// tell the API client to use static wrapper classes
+pamfax_use_static();
+
+// verify the PamFax user (this is the same as used on https://portal.pamfax.biz etc to login):
+$result = SessionApi::VerifyUser($pamfax_username,$pamfax_user_password);
+if( ($result instanceof ApiError) // explicit error 
+	|| !isset($result['UserToken']) || !isset($result['User']) ) // implicit error 
+	die("Unable to login");
+
+// set the global usertoken
+$GLOBALS['PAMFAX_API_USERTOKEN'] = $result['UserToken']->token;
+// optionally remember the user for later use
+$currentUser = $result['User'];
+
+// create a new fax and give the users IP, UserAgent and an origin
+FaxJobApi::Create($_SERVER['REMOTE_ADDR'],$_SERVER['HTTP_USER_AGENT'],'Drupal');
+// add a recipient to the fax
+if(empty($receiver)) {
+$receiver = '';
+}
+
+FaxJobApi::AddRecipient($phone, $receiver);
+// set the cover to template 1 and the text to some value
+
+if(!empty($body)) {
+FaxJobApi::SetCover(1,$body);
+}
+
+if(!empty($files)) {
+
+foreach ($files as $file) {
+$fid = $file['fid'];
+$file_obj = file_load($fid);
+$file_url = file_create_url($file_obj->uri);
+FaxJobApi::AddRemoteFile($file_url);
+}
+}
+
+watchdog("fax stuff", print_r(FaxJobApi::GetFaxState(), true));
+
+// wait for the API to prepare the fax
+do
+{
+	sleep(5);
+	$test = FaxJobApi::GetFaxState();
+	if( ($test instanceof ApiError) // explicit error 
+		 || !isset($test['FaxContainer']) ) // implicit error 
+		die("Error preparing the fax");
+}while( $test['FaxContainer']->state != "ready_to_send" );
+
+// finally send it
+FaxJobApi::Send();
+
+}

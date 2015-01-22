@@ -1,0 +1,1 @@
+[22-Oct-2014 17:38:07 America/Chicago] PHP Fatal error:  Namespace declaration statement has to be the very first statement in the script in /home3/pikeman/public_html/andrewjalexander.com/modules/simpletest/lib/Drupal/simpletest/Tests/PSR0WebTest.php on line 3

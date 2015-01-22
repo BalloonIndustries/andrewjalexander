@@ -1,0 +1,324 @@
+<?php
+	/**
+	* @file
+	* Interface with entity registration module for multiple registrations.
+	*/
+	/**
+	* Implements hook_help.
+	*
+	* Displays help and module information.
+	*
+	* @param path
+	* Which path of the site we're using to display help
+	* @param arg
+	* Array that holds the current path as returned from the arg() function
+	*/
+function multi_reg_help($path, $arg) {
+
+	switch ($path) {
+		case "admin/help#multi_reg":
+			return '<p>' . t("Allows multiple registration entities to be submitted with a single form") . '</p>';
+			break;
+		}
+	}
+	/**
+	* Generates select list array for administration page.
+	*/
+function multi_reg_options_array() {
+  $options = array('' => t('Select a Registration Type'));
+  foreach (registration_get_types() as $type) {
+    $options[$type->name] = $type->label;
+  }
+  return $options;
+}
+	/**
+	* Admin function for Multiple Registration.
+	*
+	* Allows for changing the URL and registration type that multiple registration is associated with.
+	*/
+function multi_reg_admin() {
+$multi_reg_options_array = multi_reg_options_array();
+
+
+	$form = array();
+	
+	$form['multi_reg_url'] = array(
+	'#type' => 'textfield',
+	'#title' => t('URL for Multiple Registration Page'),
+	'#default_value' => variable_get('multi_reg_url', 'multiple-registration'),
+	'#size' => 60,
+	'#maxlength' => 128,
+	'#description' => t('This is the URL where the multiple registration page will be located'),
+	'#required' => TRUE,
+	);
+	
+	   $form['multi_reg_selected'] = array(
+       '#type' => 'select',
+       '#title' => t('Registration Type for Multiple Registration'),
+       '#options' => $multi_reg_options_array,
+       '#description' => t('This is where you select the registration type you would like to use for your multiple registration form.'),
+   );
+   
+   
+	return system_settings_form($form);
+} 
+	/**
+	* Implements hook_menu().
+	*/
+function multi_reg_menu() {
+	$items = array();
+
+	$items['admin/structure/registration/multiple'] = array(
+		'title' => 'Multiple registration settings',
+		'description' => 'Setup a multiple registration form',
+		'page callback' => 'drupal_get_form',
+		'page arguments' => array('multi_reg_admin'),
+		'access arguments' => array('access administration pages'),
+		'type' => MENU_NORMAL_ITEM,
+		);
+		
+	 $items['multiple-registration'] = array(
+    'title' => 'Multiple Session Registration',
+    //'page callback' => 'multi_reg_pagecreate',
+	'page callback' => 'drupal_get_form',
+	'page arguments' => array('multi_reg_pagecreate'),
+    'access arguments' => array('access content'),
+    'type' => MENU_CALLBACK
+  );
+	
+		
+	return $items;
+}
+	/**
+	* Entity id loader
+	*
+	* Loads ids for checkbox
+	* Rename function later on
+	*/
+function multi_reg_get_id() {
+
+//must be named field_registration for right now - change later to more generic/multiple instances - STILL ACTIVE ISSUE
+//$typevalue should be set in admin, passed to this function, as should other values in this function
+
+$typevalue = 'reg_type';
+
+    $result = db_select('field_data_field_registration', 'fieldreg')
+      ->fields('fieldreg', array('entity_id'))
+      ->condition('field_registration_registration_type', $typevalue, '=')
+      ->groupBy('entity_id')
+      ->execute()
+      ->fetchAll();
+	  
+
+  return $result;
+}
+	/**
+	* Pulls fields from selected registration bundle
+	*/
+function multi_reg_bundle_select() {
+//remove when additional functionality is added
+$bundle_name = 'reg_type';
+
+$fields = array();
+
+$fields_info = field_info_instances('registration', $bundle_name);
+foreach ($fields_info as $field_name => $value) {
+$fields[] = $value;
+}
+
+$multi_reg_field_name = array();
+foreach ($fields as $miniarray) {
+//$multi_reg_field_name[] = $miniarray['field_name'];
+$multi_reg_field_name[$miniarray['label']] = $miniarray['field_name'];
+
+}
+
+
+return $multi_reg_field_name;
+//return $fields;
+
+}
+
+	/**
+	* Generate checkboxes for multiple registration form
+	*/
+function multi_reg_checkbox() {
+	$checkbox = array();
+	$multi_reg_id = multi_reg_get_id();
+	  foreach ($multi_reg_id as $regid) {
+	  //In RC, this should probably be switched to entity_load - research this
+		$node = node_load($regid->entity_id);
+		//In RC you should let the user pick the fields he/she wants to have in use, including display/formatting/css, from the following: registration, registration settings, and the content type. Figure out what seems reasonable.
+		$title = $node->title;
+		$date = $node->field_event_date[LANGUAGE_NONE][0]['value'];
+		//Somewhat kludgy code here, clean up when time permits
+		//$checkbox['t('.$title.')'] = (string)$regid->entity_id;
+		$entity_id = (string)$regid->entity_id;
+		
+		//Add the ability to have any length arrays here for values
+		
+		$dt = new DateTime($date);
+		$date = $dt->format('l, F d, Y - g:ia');
+		$checkbox[$entity_id] = $title . " | " . $date;
+			}
+			//$checkbox = array_flip($checkbox);
+			
+
+	return $checkbox;
+}
+	/**
+	* Generate page
+	*
+	* Generates a page for displaying the multiple registration form
+	*/
+function multi_reg_pagecreate($form, &$form_state) {
+    $multi_reg_checkbox = multi_reg_checkbox();
+		$bundleinfo = multi_reg_bundle_select();
+	?> <pre><?php //print_r($multi_reg_checkbox);?></pre><?php
+    $form['multi_reg_checkbox'] = array(
+        '#title'       => t('Sessions'),
+        '#type'        => 'checkboxes',
+		'#options' => $multi_reg_checkbox,
+        '#description' => t('Register for multiple Sessions here.')
+    );
+			$form['multi_reg_email'] = array(
+	'#type' => 'textfield',
+	'#title' => t('Email'),
+	'#size' => 60,
+	'#maxlength' => 128,
+	'#required' => TRUE,
+	);
+	foreach ($bundleinfo as $bundlekey => $bundlevalue) {
+		$form['multi_reg_'.$bundlevalue] = array(
+	'#type' => 'textfield',
+	'#title' => t($bundlekey),
+	'#size' => 60,
+	'#maxlength' => 128,
+	'#required' => TRUE,
+	);
+	}
+	
+	$form['submit'] = array(
+	'#type' => 'submit',
+	'#value' => t('Submit'));
+
+	
+    return $form;
+}
+
+	/**
+	* Submits multi_reg_pagecreate form
+	*/
+function multi_reg_pagecreate_submit($form, &$form_state) {
+
+
+$checkboxarray = $form_state['values']['multi_reg_checkbox'];
+
+
+$email = $form_state['values']['multi_reg_email'];
+
+$arraykey = $form_state['values'];
+
+//$arraykey = array_diff(array_keys($form_state['values']), array("submit", "form_build_id", "form_token", "form_id", "op", "multi_reg_checkbox"));
+
+$arraykey = array_diff_key($arraykey, array_flip(array("submit", "form_build_id", "form_token", "form_id", "op", "multi_reg_checkbox", "multi_reg_email")));
+
+
+$timestamp = time();
+
+//Change insert statement for more flexibility when admin conditions are added before submitting to Drupal.org.
+
+$foreachloop = array();
+
+$i = 0;
+foreach ($checkboxarray as $entity_id) {
+
+if ($entity_id != 0) {
+$i++;
+$foreachloop[] = "('reg_type','". (string)$entity_id. "','node', '".$email."',1, NULL, 0, 'complete',". (string)$timestamp . ",". (string)$timestamp .")";
+$insertvalue = implode(",", $foreachloop);
+}
+
+
+}
+
+
+
+// Look into if there's a more "Drupal" way of doing this.
+
+$sql = "INSERT INTO registration";
+$sql .= " (type, entity_id, entity_type, anon_mail, count, user_uid, author_uid, state, created, updated)";
+$sql .= " VALUES ";
+$sql .= $insertvalue;
+
+
+
+db_query($sql);
+
+$query = db_select('registration');
+
+$result = $query
+->fields('registration', array('registration_id'))
+->orderBy('registration_id', 'DESC')
+->range(0, $i)
+->execute();
+
+
+$records = array();
+
+while(
+$record = $result->fetchAssoc()) {
+$records[] = $record['registration_id'];
+
+}
+
+$records = array_reverse($records);
+
+//Lets do this all again
+
+//replace reg_type with the bundle type later on - this should be set in the admin ultimately
+
+
+foreach ($arraykey as $columnname => $value) {
+
+foreach ($records as $field_entity_id) {
+
+$fieldinsertloop = "('registration', 'reg_type', 0,".$field_entity_id.",".$field_entity_id.", 'und', 0,'".$value."','".$value."')";
+
+}
+
+$sql = "INSERT INTO " .str_replace("multi_reg", "field_data", $columnname);
+$sql .= " (entity_type, bundle, deleted, revision_id, entity_id, language, delta, ".str_replace("multi_reg_", "", $columnname)."_value, ".str_replace("multi_reg_", "", $columnname)."_format)";
+$sql .= " VALUES ";
+$sql .= $fieldinsertloop;
+
+db_query($sql);
+
+}
+
+// Sends a mail - Troy Library specific - replace with Drupal functionality later on (likely requires creating a custom entity for this module) - straight PHP for right now. Plan for rules integration as well as passing associative data from checkboxes in future versions.
+$site_email = variable_get('site_mail', '');
+
+$eventname = "";
+foreach ($checkboxarray as $item) {
+$nodeeventloaded = node_load($item);
+
+$eventname .= $nodeeventloaded->title."\r\n";
+
+}
+
+
+$to      = $site_email;
+
+$subject = 'Multiple Registrations';
+$message = $eventname."Last Name: ". $form_state['values']['multi_reg_field_reg_last_name']."\r\nFirst Name: ".$form_state['values']['multi_reg_field_reg_first_name']."\r\nEmail: ".$email."\r\nPhone Number: ".$form_state['values']['multi_reg_field_reg_phone']."\r\nAddress: ".$form_state['values']['multi_reg_field_reg_street_address']."\r\nCity: ".$form_state['values']['multi_reg_field_reg_city']."\r\nZIP: " . $form_state['values']['multi_reg_field_reg_zip_code'];
+$headers = 'From: info@troylibrary.com' . "\r\n" .
+    'Reply-To: info@troylibrary.com' . "\r\n" .
+    'X-Mailer: PHP/' . phpversion();
+
+mail($to, $subject, $message, $headers);
+
+
+
+
+}

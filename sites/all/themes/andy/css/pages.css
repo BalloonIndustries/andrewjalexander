@@ -1,0 +1,578 @@
+/**
+ * @file
+ * Page Styling
+ *
+ * Style the markup found in page.tpl.php. Also includes some styling of
+ * miscellaneous Drupal elements that appear in the $content variable, such as
+ * ul.links, .pager, .more-link, etc.
+ */
+
+
+/*
+ * Body
+ */
+ html {
+/*background-color: #333333;*/
+ }
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Open Sans', sans-serif;
+  height: 100%;
+}
+
+h1 {
+font-family: 'Holtwood One SC', serif;
+color: #B51F24;
+font-size: 4em;
+}
+h3 {
+font-family: 'Holtwood One SC', serif;
+color: #B51F24;
+font-size: .5em;
+}
+#usermenulinks {
+position: absolute;
+margin-top: -1.2em;
+}
+
+p {
+margin: 1.2em;
+}
+.hugeimage {
+/*position: absolute;*/
+margin-top: -50%;
+/*margin-left: 50%;*/
+float: right;
+}
+
+.region-footer {
+
+}
+
+.region-footer .block {
+margin-bottom: 0;
+}
+
+.icon {
+margin-left: 10px;
+}
+
+#contact {
+  margin-right: auto;
+
+  margin-top: 40px;
+ position: absolute;
+min-height: 80px;
+}
+@media(min-width: 1200px) {
+#contact {
+margin-left: 35%;
+}
+}
+@media(max-width: 1200px) {
+#contact {
+margin-left: 5%;
+}
+}
+#contactinfo {
+vertical-align: 18px;
+color: #999999;
+font-size: large;
+}
+
+#page-wrapper {
+}
+
+#page {
+}
+
+/*
+ * The skip-link link will be completely hidden until a user tabs to the link.
+ * See the element-focusable rule in system.base.css.
+ */
+#skip-link a,
+#skip-link a:visited {
+  display: block;
+  width: 100%;
+  padding: 2px 0 3px 0;
+  text-align: center;
+  background-color: #666;
+  color: #fff;
+}
+
+/*
+ * Header
+ */
+#header {
+}
+
+#header .section {
+}
+
+#logo /* Wrapping link for logo */ {
+  float: left; /* LTR */
+  margin: 0;
+  padding: 0;
+}
+
+#logo img {
+  vertical-align: bottom;
+}
+
+#name-and-slogan /* Wrapper for website name and slogan */ {
+  float: left;
+}
+
+@media(min-width: 1200px) {
+
+h1#site-name,
+div#site-name /* The name of the website */ {
+margin-right: auto;
+  font-size: 4em;
+  margin-left: 41%;
+  margin-top: -20px;
+}}
+@media(min-width: 800px) and (max-width: 1200px) {
+
+h1#site-name,
+div#site-name /* The name of the website */ {
+margin-right: auto;
+  font-size: 4em;
+  margin-left: 32%;
+  margin-top: -20px;
+}}
+@media(orientation: portrait) {
+
+h1#site-name,
+div#site-name /* The name of the website */ {
+margin-right: auto;
+  font-size: 4em;
+  margin-left: 28%;
+  margin-top: -20px;
+}}
+
+#site-name a:link,
+#site-name a:visited {
+  color: #000;
+  text-decoration: none;
+}
+
+#site-name a:hover h3,
+#site-name a:focus h3 {
+color: #e2585c;
+}
+@media(min-width: 1200px) {
+#site-slogan /* The slogan (or tagline) of a website */ {
+margin-left: 37%;
+margin-top:-20px;
+font-weight: 800;
+color: #AEAEAE;
+}}
+@media (max-width: 1200px) {
+#site-slogan {
+margin-left: 25%;
+margin-top:-20px;
+font-weight: 800;
+color: #AEAEAE;
+}
+}
+@media(orientation: portrait) {
+#site-slogan {
+margin-left: 9%;
+margin-top:-20px;
+font-weight: 800;
+color: #AEAEAE;
+}
+}
+.region-header /* Wrapper for any blocks placed in the header region */ {
+  clear: both; /* Clear the logo */
+}
+
+/*
+ * Main (container for everything else)
+ */
+#main-wrapper {
+}
+
+#main {
+}
+
+
+#page-title {
+margin-top: 5%;
+margin-left: 10%;
+}
+@media(min-width: 1200px) {
+.page-node-8 #contentbody {
+margin-left: 10%;
+}}
+@media(max-width: 1200px) {
+#contentbody {
+margin-left: -10%;
+}
+.page-node-8 #contentbody {
+margin-left: -23%;
+}
+}
+
+
+@media(min-width: 1200px) {
+#contentbody {
+width: 60%;
+}}
+@media(max-width: 1200px) {
+#contentbody {
+width: 80%;
+}
+.page-photos #contentbody {
+width: 60%;
+margin-left: -15%;
+}}
+
+@media(max-width: 1024px) {
+#contentbody{
+min-height: 1100px;
+margin-top: 7%;
+}}
+@media(min-width: 1024px) {
+#contentbody{
+min-height: 600px;
+}}
+
+#content .section {
+}
+
+.region-highlighted {
+}
+
+.breadcrumb /* The path to the current page in the form of a list of links */ {
+  padding-bottom: 0; /* Undo system.css */
+}
+
+h1.title, /* The title of the page */
+h2.node-title, /* Title of a piece of content when it is given in a list of content */
+h2.block-title, /* Block title */
+h2.title, /* Comment section heading */
+h2.comment-form, /* Comment form heading */
+h3.title /* Comment title */ {
+  margin: 0;
+}
+
+tr.even /* Some tables have rows marked even or odd. */ {
+  /* background-color: #eee; */ /* Drupal core uses a #eee background */
+}
+
+tr.odd {
+  /* background-color: #eee; */ /* Drupal core uses a #eee background */
+}
+
+div.messages /* Important messages (status, warning, and error) for the user. See also the declarations in messages.css. */ {
+  margin: 1.5em 0; /* Drupal core uses "6px 0" margin */
+}
+
+div.messages ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+div.status /* Normal priority messages */ {
+}
+
+div.warning,
+tr.warning /* Medium priority messages */ {
+  /* border: 1px solid #f0c020; */ /* Drupal core uses: 1px solid #f0c020 */
+}
+
+div.error,
+tr.error /* High priority messages. See also the .error declaration below. */ {
+}
+
+.error /* Errors that are separate from div.messages status messages. */ {
+  /* color: #e55; */ /* Drupal core uses a #e55 background */
+}
+
+.warning /* Warnings that are separate from div.messages status messages. */ {
+  /* color: #e09010; */ /* Drupal core uses a #e09010 background */
+}
+
+div.tabs /* See also the tabs.css file. */ {
+}
+
+.region-help /* Help text on a page */ {
+}
+
+.more-help-link /* Link to more help */ {
+}
+
+.region-content /* Wrapper for the actual page content */ {
+}
+
+ul.links /* List of links */ {
+}
+
+ul.links.inline {
+  display: block; /* Let the links be inline, but the container be a block. */
+}
+
+ul.links li {
+  padding: 0 1em 0 0; /* LTR */
+}
+
+.item-list .pager /* A list of page numbers when more than 1 page of content is available */ {
+  padding: 0;
+}
+
+.item-list .pager li /* Each page number in the pager list */ {
+  padding: 0 0.5em;
+}
+
+.feed-icon /* The link to the RSS or Atom feed for the current list of content */ {
+}
+
+.more-link /* Aggregator, blog, and forum more link */ {
+}
+
+/*
+ * First sidebar (on left in LTR languages, on right in RTL)
+ *
+ * Remember to NOT add padding or margin to your .region-sidebar-first
+ * (see the layout.css file.)
+ */
+.region-sidebar-first {
+}
+
+.region-sidebar-first .section {
+}
+
+/*
+ * Second sidebar (on right in LTR languages, on left in RTL)
+ *
+ * Remember to NOT add padding or margin to your .region-sidebar-second
+ * (see the layout.css file.)
+ */
+.region-sidebar-second {
+}
+
+.region-sidebar-second .section {
+}
+
+/*
+ * Footer
+ */
+.region-footer {
+height: 100px;
+}
+
+/*
+ * Page bottom
+ */
+.region-bottom /* Wrapper for any blocks placed in the page bottom region */ {
+}
+
+/*Additional Custom */
+
+.webform-client-form label {
+display: inline-block;
+width: 117px;
+}
+.entitytype-contact_form-form label{
+    display: inline-block;
+        width: 117px;
+}
+.entitytype-contact_form-form {
+    margin-left: 50px;
+}
+.webform-client-form {
+margin-left: 20px;
+}
+.links {
+margin-left: 20px;
+}
+@media(min-width: 1200px) {
+div.tabs {
+margin-left: 120px;
+width: 960px;
+}}
+.views-view-grid td {
+padding-right: 5px;
+}
+.page-node-8 .resume {
+box-shadow: 2px 2px 5px 5px #7C7C7C;
+background-color: #F0F0F0;
+margin-bottom: 30px;
+}
+.page-node-8 #contentbody {
+width: 60%;
+}
+
+.page-node-8 dt {
+font-style: italic;
+font-weight: bold;
+font-size: 18px;
+text-align: right;
+padding: 0 26px 0 0;
+width: 150px;
+float: left;
+height: 100px;
+border-right: 1px solid #999;
+ }
+ @media (max-width: 1200px) {
+ .page-node-8 #contentbody {
+ width: 120%;
+ }
+ .page-node-8 dd {
+ margin-right: 150px;
+ }
+ div.tabs {
+ width: 90%;
+ margin-left: 60px;
+ }
+ }
+ 
+ @media(max-width: 1400px) {
+ .page-node-8 #contentbody {
+ width: 80%;
+ }
+ .page-node-8 dd {
+ margin-right: 100px;
+ }
+ }
+ 
+.page-node-8 #experiencedt {
+ height: 800px;
+ }
+ .page-node-8 #contactdt {
+ height: 75px;
+ }
+
+ @media(max-width: 1200px) {
+.page-node-8 dd {
+width: 550px;
+float: right;
+ }}
+ @media(min-width: 1200px) {
+ .page-node-8 dd {
+ width: 600px;
+ float: right;
+ }
+ }
+ 
+@media(min-width: 1400px) {
+.page-node-8 dd {
+margin-right: 200px;
+}}
+ 
+.page-node-8 h4 {
+font-size: 20px;
+margin: 0 0 6px 0;
+position: relative;
+ }
+
+.page-node-8 h4 span {
+position: absolute;
+bottom: 0; right: 0;
+font-style: italic;
+font-family: Georgia, Serif;
+font-size: 16px;
+color: #999;
+font-weight: normal;
+ }
+
+.page-node-8 p {
+margin: 0 0 16px 0;
+}
+
+.page-node-8 ul {
+margin: 0 0 32px 17px;
+ }
+ 
+.page-node-8 dl {
+padding-top: 30px;
+}
+.row-first img {
+width: 220px;
+height: 147px;
+}
+.views-field-title {
+font-family: 'Holtwood One SC', serif;
+color: #B51F24;
+font-size: 10px;
+}
+.gmap-popup img {
+width: 100px;
+height: 140px;
+}
+.field-name-field-location-image field-type-image {
+margin-left: 1.2em;
+}
+.page-tasks .vertical-tabs {
+    display: none;
+}
+.page-tasks #edit-preview {
+    display: none;
+}
+.page-tasks .region-sidebar-second {
+    margin-top: 160px;
+    margin-right: 3em;
+}
+.page-calendar .region-sidebar-second {
+    margin-right: 375px;
+    margin-top:150px;
+}
+.page-tasks .views-field {
+    padding-right: 4em;
+}
+.page-tasks #edit-field-date-value-1-value-datepicker-popup-0 {
+    width:225px;
+}
+.page-tasks #edit-field-date-value-value-datepicker-popup-0 {
+    width:225px;
+}
+.page-tasks .view-task-manager {
+    margin-top: 30px;
+}
+.page-tasks .views-field-title {
+    font-family: "Open Sans",sans-serif;
+    color: black;
+    font-size: 14px;
+}
+.page-travels #contentbody {
+    margin-left: 50px;
+}
+.page-batch h1 {
+    font-size: 2em;
+}
+.page-batch .progress {
+    margin-top: 100px;
+    margin-left: 200px;
+}
+div.messages {
+    margin-top: 50px;
+}
+.page-calendar #content .section {
+    margin-left: 125px;
+}
+
+.page-calendar .views-field-title {
+     font-family: "Open Sans",sans-serif;
+}
+.page-tasks .views-field-views-bulk-operations {
+    padding-right: 1em;
+}
+
+.messages {
+    width: 900px;
+}
+.page-calendar #content .section {
+    margin-top: 50px;
+}
+ .resume-section {
+    margin-left: 200px;
+}
+#edit-parameter-days-settings-help-php {
+    display: none;
+}
+#edit-parameter-days-settings-help-token {
+    display: none;
+}

@@ -1,0 +1,36 @@
+#views_slideshow_cycle_teaser_section_slide_show-page{
+margin:auto;
+}
+
+
+#views_slideshow_cycle_teaser_section_slide_show-default {
+margin:auto;
+}
+
+#resume {
+margin-left: 20px;
+
+}
+
+#resume .block-content{
+background: #787878;
+padding: 10px;
+margin-top: 9px;
+border-bottom: 1px solid #eee;
+border-left: 1px solid #eee;
+border-right: 1px solid #eee;
+border-top: 1px solid #eee;
+font-family: 'Trebuchet MS','Helvetica Neue',Arial,Helvetica,sans-serif;
+}
+
+
+li {
+display:block;
+float:left;
+}
+
+.block-content ul.menu li {
+
+padding-right: 3px;
+padding-left: 3px;
+}

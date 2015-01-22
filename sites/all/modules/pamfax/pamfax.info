@@ -1,0 +1,5 @@
+name = Pamfax Integration
+description = Allows you to send and receive faxes using the Pamfax API.
+core = 7.x
+dependencies[] = libraries
+dependencies[] = rules
