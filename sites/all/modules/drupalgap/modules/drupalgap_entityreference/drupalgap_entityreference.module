@@ -11,7 +11,10 @@ function drupalgap_entityreference_services_request_postprocess_alter($controlle
     // Add the entity type, bundle, and title/name/subject/etc to the result set.
     foreach ($instances as $field => $instance) {
       if (!isset($instance['display']['default']['module'])) { continue; }
-      if ($instance['display']['default']['module'] != 'entityreference') { continue; }
+      $module = $instance['display']['default']['module'];
+      // Skip any fields not provided by the entity reference module (also
+      // support the Organic Groups module here).
+      if ($module != 'entityreference' && $module != 'og_ui') { continue; }
       // Extract the entity type and bundle.
       $entity_type = isset($instance['entity_type']) ? $instance['entity_type'] : null;
       $bundle = isset($instance['bundle']) ? $instance['bundle'] : null;

@@ -317,19 +317,19 @@ class TranscoderAbstractionFactoryFfmpeg extends TranscoderAbstractionFactory im
       $qttmpfile = $tmpoutputpath . '-qt';
       $output = array();
       $retval = 0;
-      exec($cmd . ' ' . escapeshellarg($tmpoutputpath) . ' ' . escapeshellarg($qttmpfile) . ' 2>&1', $output, $retval);
-
-      // qt-faststart does not return an error code when it doesn't generate an output file,
-      // so also check if the output file has been generated.
-      if ($retval == 0 && file_exists($qttmpfile)) {
-        drupal_unlink($tmpoutputpath);
-        rename($qttmpfile, $tmpoutputpath);
-      }
+      exec($cmd . ' ' . escapeshellarg($tmpoutputpath) . ' ' . escapeshellarg($qttmpfile) . ' 2>&1', $output, $retval);
+
+      // qt-faststart does not return an error code when it doesn't generate an output file,
+      // so also check if the output file has been generated.
+      if ($retval == 0 && file_exists($qttmpfile)) {
+        drupal_unlink($tmpoutputpath);
+        rename($qttmpfile, $tmpoutputpath);
+      }
       else {
         watchdog('transcoder', 'Error while executing @cmdname on video @filename: @output', array('@cmdname' => 'qt-faststart', '@filename' => $this->realoutputname, '@output' => implode("\n", $output)), WATCHDOG_ERROR);
-        if (file_exists($qttmpfile)) {
+        if (file_exists($qttmpfile)) {
           drupal_unlink($qttmpfile);
-        }
+        }
       }
     }
 
@@ -506,24 +506,24 @@ class TranscoderAbstractionFactoryFfmpeg extends TranscoderAbstractionFactory im
       '#size' => 5,
     );
 
-    // Video conversion settings.
-    $form['ffmpeg']['helpers'] = array(
-      '#type' => 'fieldset',
-      '#title' => t('Helper programs'),
-      '#collapsible' => TRUE,
-      '#collapsed' => TRUE,
-    );
-    $form['ffmpeg']['helpers']['video_ffmpeg_qtfaststart_path'] = array(
-      '#type' => 'textfield',
+    // Video conversion settings.
+    $form['ffmpeg']['helpers'] = array(
+      '#type' => 'fieldset',
+      '#title' => t('Helper programs'),
+      '#collapsible' => TRUE,
+      '#collapsed' => TRUE,
+    );
+    $form['ffmpeg']['helpers']['video_ffmpeg_qtfaststart_path'] = array(
+      '#type' => 'textfield',
       '#title' => t('Path to qt-faststart'),
       '#default_value' => variable_get('video_ffmpeg_qtfaststart_path'),
-      '#description' => t('When you enter the path to @toolname here, it will be run after any @filetype files are transcoded. It improves the loading time of @filetype videos. On Linux, the default for this field is %default_value.', array('@toolname' => 'qt-faststart', '@filetype' => 'MP4', '%default_value' => '/usr/bin/qt-faststart')),
-    );
-    $form['ffmpeg']['helpers']['video_ffmpeg_flvtool2_path'] = array(
-      '#type' => 'textfield',
+      '#description' => t('When you enter the path to @toolname here, it will be run after any @filetype files are transcoded. It improves the loading time of @filetype videos. On Linux, the default for this field is %default_value.', array('@toolname' => 'qt-faststart', '@filetype' => 'MP4', '%default_value' => '/usr/bin/qt-faststart')),
+    );
+    $form['ffmpeg']['helpers']['video_ffmpeg_flvtool2_path'] = array(
+      '#type' => 'textfield',
       '#title' => t('Path to flvtool2'),
       '#default_value' => variable_get('video_ffmpeg_flvtool2_path'),
-      '#description' => t('When you enter the path to @toolname here, it will be run after any @filetype files are transcoded. It improves the loading time of @filetype videos. On Linux, the default for this field is %default_value.', array('@toolname' => 'flvtool2', '@filetype' => 'FLV', '%default_value' => '/usr/bin/flvtool2')),
+      '#description' => t('When you enter the path to @toolname here, it will be run after any @filetype files are transcoded. It improves the loading time of @filetype videos. On Linux, the default for this field is %default_value.', array('@toolname' => 'flvtool2', '@filetype' => 'FLV', '%default_value' => '/usr/bin/flvtool2')),
     );
 
     return $form;
@@ -555,16 +555,16 @@ class TranscoderAbstractionFactoryFfmpeg extends TranscoderAbstractionFactory im
       cache_clear_all(self::INFO_CID, self::INFO_CACHE);
     }
 
-    if (!empty($v['video_ffmpeg_qtfaststart_path'])) {
-      if (!is_file($v['video_ffmpeg_qtfaststart_path'])) {
-        form_error($form['ffmpeg']['helpers']['video_ffmpeg_qtfaststart_path'], t('The file %file does not exist.', array('%file' => $v['video_ffmpeg_qtfaststart_path'])));
-      }
-    }
-
-    if (!empty($v['video_ffmpeg_flvtool2_path'])) {
-      if (!is_file($v['video_ffmpeg_flvtool2_path'])) {
-        form_error($form['ffmpeg']['helpers']['video_ffmpeg_flvtool2_path'], t('The file %file does not exist.', array('%file' => $v['video_ffmpeg_flvtool2_path'])));
-      }
+    if (!empty($v['video_ffmpeg_qtfaststart_path'])) {
+      if (!is_file($v['video_ffmpeg_qtfaststart_path'])) {
+        form_error($form['ffmpeg']['helpers']['video_ffmpeg_qtfaststart_path'], t('The file %file does not exist.', array('%file' => $v['video_ffmpeg_qtfaststart_path'])));
+      }
+    }
+
+    if (!empty($v['video_ffmpeg_flvtool2_path'])) {
+      if (!is_file($v['video_ffmpeg_flvtool2_path'])) {
+        form_error($form['ffmpeg']['helpers']['video_ffmpeg_flvtool2_path'], t('The file %file does not exist.', array('%file' => $v['video_ffmpeg_flvtool2_path'])));
+      }
     }
   }
 
@@ -685,13 +685,16 @@ class TranscoderAbstractionFactoryFfmpeg extends TranscoderAbstractionFactory im
           // Decrease the height.
           $factor = $targetdimensions[0] < $sourcedimensions[0] ? $targetdimensions[0] / $sourcedimensions[0] : $sourcedimensions[0] / $targetdimensions[0];
           $width = $targetdimensions[0];
-          $height = round($sourcedimensions[1] * $factor);
+          $height = $sourcedimensions[1] * $factor;
         }
         else {
           $factor = $targetdimensions[1] < $sourcedimensions[1] ? $targetdimensions[1] / $sourcedimensions[1] : $sourcedimensions[1] / $targetdimensions[1];
-          $width = round($sourcedimensions[0] * $factor);
+          $width = $sourcedimensions[0] * $factor;
           $height = $targetdimensions[1];
         }
+
+        $width = video_utility::roundToEvenNumber($width);
+        $height = video_utility::roundToEvenNumber($height);
 
         if ($width != $sourcedimensions[0] || $height != $sourcedimensions[1]) {
           $this->transcoder->addCommand('-vf', 'scale='.$width.':'.$height);
