@@ -1,2 +1,0 @@
-[22-Oct-2014 17:38:11 America/Chicago] PHP Fatal error:  Class 'ViewsUiNodeViewsWizard' not found in /home3/pikeman/public_html/andrewjalexander.com/sites/all/modules/views/plugins/views_wizard/views_ui_node_revision_views_wizard.class.php on line 11
-[24-Oct-2014 04:32:26 America/Chicago] PHP Fatal error:  Class 'ViewsUiNodeViewsWizard' not found in /home3/pikeman/public_html/andrewjalexander.com/sites/all/modules/views/plugins/views_wizard/views_ui_node_revision_views_wizard.class.php on line 11
