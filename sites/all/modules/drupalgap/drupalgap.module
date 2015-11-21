@@ -199,8 +199,15 @@ function drupalgap_services_request_postprocess_alter($controller, $args, &$resu
       break;
     case '_node_resource_retrieve':
 
+      if (isset($result->rdf_mapping)) { unset($result->rdf_mapping); }
       _drupalgap_add_term_data_to_entities($controller, $args, $result);
 
+      break;
+    case '_user_resource_login':
+      // Remove rdf_mapping from user object.
+      if ($result && isset($result->user) && isset($result->user->rdf_mapping)) {
+        unset($result->user->rdf_mapping);
+      }
       break;
   }
 }
@@ -226,6 +233,7 @@ function drupalgap_system_connect_extras($system_connect_call = true) {
   // Grab the date formats and types.
   $results['date_formats'] = system_get_date_formats();
   $results['date_types'] = system_get_date_types();
+
   // For each date type, look in the variable table to find its format. Not all
   // types will have a format.
   foreach ($results['date_types'] as $name => $type) {
@@ -253,6 +261,17 @@ function drupalgap_system_connect_extras($system_connect_call = true) {
       field_info_extra_fields('node', $content_type->type, 'form');
   }
   $results['taxonomy_vocabularies'] = _drupalgap_taxonomy_get_vocabularies();
+
+  // For any image fields with a default image, include the file uri.
+  $image_fields = field_read_fields(array('type' => 'image'));
+  foreach ($image_fields as $field_name => $field) {
+    if (!$results['field_info_fields'][$field_name]['settings']['default_image']) { continue; }
+    $fid = $results['field_info_fields'][$field_name]['settings']['default_image'];
+    if (!$file = file_load($fid)) { continue; };
+    $results['field_info_fields'][$field_name]['settings']['default_image_uri'] = $file->uri;
+  }
+
+  // Finally return the results.
   return $results;
 }
 
@@ -287,6 +306,11 @@ function drupalgap_preprocess_views_views_json_style_simple(&$vars) {
     $view['filter'] = array();
     foreach ($vars['view']->filter as $field => $filter) {
       if ($filter->options['exposed']) {
+        // The site builder didn't select any available options for this
+        // exposed filter, but that's OK, they probably want all options
+        // available.
+        $value_options = isset($filter->value_options) ?
+          $filter->value_options : NULL;
         // The entire field is huge in size and complexity, so let's trim it
         // down to the bare necessities.
         // @TODO - as the Views Exposed Filters feature evolves, revisit this
@@ -307,7 +331,7 @@ function drupalgap_preprocess_views_views_json_style_simple(&$vars) {
           //'real_field' => $filter->real_field,
           //'relationship' => $filter->relationship,
           'value' => $filter->value,
-          'value_options' => $filter->value_options,
+          'value_options' => $value_options,
           //'value_value' => $filter->value_value
         );
       }
@@ -329,7 +353,7 @@ function drupalgap_sdk_form($form, &$form_state) {
   if (!$installed) {
     // Many existing sites will already have the mobile-application directory in
     // use, let's auto detect that.
-    if (file_exists('mobile-application')) {
+    if (file_exists($dir)) {
       $installed = 1;
       variable_set('drupalgap_sdk_installed', $installed);
       variable_set('drupalgap_sdk_dir', $dir);
@@ -344,7 +368,7 @@ function drupalgap_sdk_form($form, &$form_state) {
   }
   else {
     // If it's installed, but the directory is gone, let them start over.
-    if (!file_exists('mobile-application')) {
+    if (!file_exists($dir)) {
       $installed = 0;
       variable_set('drupalgap_sdk_installed', $installed);
     }
@@ -364,11 +388,11 @@ function drupalgap_sdk_form($form, &$form_state) {
 
   // Provide them with a link to view the app.
   if ($installed) {
+    $demo_link = base_path() . $dir . '/index.html';
     $form['dir']['#suffix'] = '<div class="messages status">' .
-      l(t('Launch app'), $dir . '/index.html', array('attributes' => array(
-        'target' => '_blank',
-        'title' => t('Test your app in a browser')
-      ))) . ' (' .
+      '<a href="' . $demo_link . '" target="_blank" title="' . t('Test your app in a browser') . '">' .
+        t('Launch app') .
+      '</a>' . ' (' .
       l(t('download'), 'admin/config/services/drupalgap/download-app', array('attributes' => array(
         'title' => t('Download a zip file of your app')
       ))) . ' | ' .
@@ -424,8 +448,8 @@ function drupalgap_sdk_form_submit($form, &$form_state) {
   //$name = "DrupalGap-7.x-1.x";
 
   // Recommended release.
-  $source = "https://github.com/signalpoint/DrupalGap/archive/7.x-1.0-rc5.zip";
-  $name = "DrupalGap-7.x-1.0-rc5";
+  $source = "https://github.com/signalpoint/DrupalGap/archive/7.x-1.3.zip";
+  $name = "DrupalGap-7.x-1.3";
 
   // Download a zip file of the SDK from github.
   if (file_put_contents($file, file_get_contents($source)) === false) {
@@ -755,9 +779,13 @@ function _drupalgap_add_term_data_to_entity($entity, $entity_type, $bundle) {
       $instance['widget']['module'] == 'taxonomy' ||
       (
         $instance['widget']['module'] == 'options' &&
+        isset($instance['display']['default']['module']) &&
         (
-          $instance['display']['default']['module'] == 'taxonomy' ||
-          $instance['display']['default']['module'] == 'i18n_taxonomy'
+          isset($instance['display']['default']['module']) &&
+          (
+            $instance['display']['default']['module'] == 'taxonomy' ||
+            $instance['display']['default']['module'] == 'i18n_taxonomy'
+          )
         )
       )
     ) {
