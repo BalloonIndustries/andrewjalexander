@@ -218,3 +218,9 @@ function STARTERKIT_preprocess_block(&$variables, $hook) {
   $variables['classes_array'][] = 'count-' . $variables['block_id'];
 }
 // */
+
+function andy_preprocess_page(&$variables) {
+  if (!empty($variables['node']) && !empty($variables['node']->type)) {
+    $variables['theme_hook_suggestions'][] = 'page__node__' . $variables['node']->type;
+  }
+}

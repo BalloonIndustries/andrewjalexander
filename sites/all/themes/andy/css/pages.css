@@ -204,14 +204,14 @@ margin-top: 5%;
 margin-left: 10%;
 }
 @media(min-width: 1200px) {
-.page-node-8 #contentbody {
+.node-type-resume #contentbody {
 margin-left: 10%;
 }}
 @media(max-width: 1200px) {
 #contentbody {
 margin-left: -10%;
 }
-.page-node-8 #contentbody {
+.node-type-resume #contentbody {
 margin-left: -23%;
 }
 }
@@ -397,79 +397,56 @@ width: 960px;
 .views-view-grid td {
 padding-right: 5px;
 }
-.page-node-8 .resume {
+.node-type-resume .resume {
 box-shadow: 2px 2px 5px 5px #7C7C7C;
 background-color: #F0F0F0;
 margin-bottom: 30px;
+max-width: 1000px;
 }
-.page-node-8 #contentbody {
+.node-type-resume #contentbody {
 width: 60%;
 }
 
-.page-node-8 dt {
+.node-type-resume dt {
 font-style: italic;
 font-weight: bold;
 font-size: 18px;
 text-align: right;
 padding: 0 26px 0 0;
-width: 150px;
+width: 17%;
 float: left;
 height: 100px;
 border-right: 1px solid #999;
  }
- @media (max-width: 1200px) {
- .page-node-8 #contentbody {
+ @media(max-width: 960px) {
+  .node-type-resume #contentbody {
  width: 120%;
+ }   
  }
- .page-node-8 dd {
- margin-right: 150px;
- }
- div.tabs {
- width: 90%;
- margin-left: 60px;
- }
- }
- 
- @media(max-width: 1400px) {
- .page-node-8 #contentbody {
+ .node-type-resume #contentbody {
  width: 80%;
  }
- .page-node-8 dd {
- margin-right: 100px;
- }
+ .node-type-resume dd {
+ margin-right: 10%;
  }
  
-.page-node-8 #experiencedt {
+.node-type-resume #experiencedt {
  height: 800px;
  }
- .page-node-8 #contactdt {
+ .node-type-resume #contactdt {
  height: 75px;
  }
-
- @media(max-width: 1200px) {
-.page-node-8 dd {
-width: 550px;
-float: right;
- }}
- @media(min-width: 1200px) {
- .page-node-8 dd {
- width: 600px;
- float: right;
+ .node-type-resume dd {
+     float: right;
+     width: 60%;
  }
- }
- 
-@media(min-width: 1400px) {
-.page-node-8 dd {
-margin-right: 200px;
-}}
- 
-.page-node-8 h4 {
+.node-type-resume h4 {
 font-size: 20px;
 margin: 0 0 6px 0;
 position: relative;
  }
 
-.page-node-8 h4 span {
+.node-type-resume h4 span {
 position: absolute;
 bottom: 0; right: 0;
 font-style: italic;
@@ -479,15 +456,15 @@ color: #999;
 font-weight: normal;
  }
 
-.page-node-8 p {
+.node-type-resume p {
 margin: 0 0 16px 0;
 }
 
-.page-node-8 ul {
+.node-type-resume ul {
 margin: 0 0 32px 17px;
  }
  
-.page-node-8 dl {
+.node-type-resume dl {
 padding-top: 30px;
 }
 .row-first img {
