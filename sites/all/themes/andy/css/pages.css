@@ -423,8 +423,10 @@ border-right: 1px solid #999;
  width: 120%;
  }   
  }
+ @media(min-width:961px) {
  .node-type-resume #contentbody {
  width: 80%;
+ }
  }
  .node-type-resume dd {
  margin-right: 10%;
