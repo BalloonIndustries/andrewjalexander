@@ -403,9 +403,9 @@ ul.links li {
     margin-bottom: 30px;
     max-width: 1000px;
 }
-.node-type-resume #contentbody {
+/*.node-type-resume #contentbody {
     width: 60%;
-}
+}*/
 
 .node-type-resume dt {
     font-style: italic;
@@ -472,10 +472,18 @@ Less than 700px breakpoint
     }
 }
 
-@media(max-width: 960px) {
+/*@media(max-width: 960px) {
     .node-type-resume #contentbody {
         width: 120%;
     }   
+}*/
+@media(max-width: 960px) {
+    .node-type-resume #contentbody {
+        width: 75%;
+    }   
+    h1#site-name, div#site-name {
+        margin-left: 19%;
+    }
 }
 @media(min-width:961px) {
     .node-type-resume #contentbody {
