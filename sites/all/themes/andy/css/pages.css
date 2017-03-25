@@ -148,7 +148,8 @@ p {
     div#site-name /* The name of the website */ {
         margin-right: auto;
         font-size: 4em;
-        margin-left: 28%;
+       /* margin-left: 28%;*/
+       margin-left: 32%;
         margin-top: -20px;
     }}
 
@@ -177,14 +178,19 @@ p {
         color: #AEAEAE;
     }
 }
-@media(orientation: portrait) {
+/*@media (max-width:  960px) {
+    #site-slogan {
+        margin-left: 9%;
+    }
+}*/
+/*@media(orientation: portrait) {
     #site-slogan {
         margin-left: 9%;
         margin-top:-20px;
         font-weight: 800;
         color: #AEAEAE;
     }
-}
+}*/
 .region-header /* Wrapper for any blocks placed in the header region */ {
     clear: both; /* Clear the logo */
 }
@@ -413,7 +419,7 @@ ul.links li {
     font-size: 18px;
     text-align: right;
     padding: 0 26px 0 0;
-    width: 17%;
+    width: 19%;
     float: left;
     height: 100px;
     border-right: 1px solid #999;
@@ -431,7 +437,7 @@ Less than 700px breakpoint
 
 **/
 
-@media(max-width: 700px) {
+@media(max-width: 810px) {
 
     #site-slogan {
         margin-left: 2%;
@@ -477,13 +483,18 @@ Less than 700px breakpoint
         width: 120%;
     }   
 }*/
+@media(max-width: 810px) {
+        h1#site-name, div#site-name {
+        margin-left: 2%;
+    }
+}
 @media(max-width: 960px) {
     .node-type-resume #contentbody {
         width: 75%;
     }   
-    h1#site-name, div#site-name {
+    /*h1#site-name, div#site-name {
         margin-left: 19%;
-    }
+    }*/
 }
 @media(min-width:961px) {
     .node-type-resume #contentbody {
@@ -613,7 +624,7 @@ div.messages {
         margin-left: 200px;
     }
 }
-@media(max-width:700px) {
+@media(max-width:810px) {
     .resume-section {
         margin-left: 25px;
     }
@@ -624,7 +635,7 @@ div.messages {
 #edit-parameter-days-settings-help-token {
     display: none;
 }
-@media(min-width: 700px) {
+@media(min-width: 810px) {
     #mm-icon-button {
         display: none;
     }
@@ -632,8 +643,9 @@ div.messages {
 #mm-icon-button {
     width: 50px;
     height: 50px;
+    cursor: pointer;
 }
-@media(max-width: 700px) {
+@media(max-width: 810px) {
     #superfish-1 {
         display: none;
     }
@@ -649,4 +661,10 @@ div.messages {
 }
 .mmenu-nav.mm-basic > .mm-list li {
     border-top: none;
+}
+.pre-intructions p {
+    margin: 0px;
+}
+.entitytype-contact_form-form {
+    max-width: 50%;
 }
