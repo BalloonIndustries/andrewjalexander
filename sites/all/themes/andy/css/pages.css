@@ -486,7 +486,7 @@ Less than 700px breakpoint
     }
 
     .node-type-resume .resume {
-        max-width: 500px;    
+        /*max-width: 500px;    */
     }
 
     .node-type-resume dt {
