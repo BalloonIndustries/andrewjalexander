@@ -1,0 +1,13 @@
+name = Menu Feature
+core = 7.x
+package = Features
+dependencies[] = ctools
+dependencies[] = features
+dependencies[] = menu
+dependencies[] = strongarm
+features[ctools][] = strongarm:strongarm:1
+features[features_api][] = api:2
+features[menu_custom][] = main-menu
+features[menu_links][] = main-menu_photography:http://andrewjalexander.com/photos
+features[menu_links][] = main-menu_travels:http://www.andrewjalexander.com/travels
+features[variable][] = mmenu_item_mmenu_left
