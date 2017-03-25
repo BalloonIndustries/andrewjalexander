@@ -80,10 +80,17 @@ margin-bottom: 0em;
 }
 
 @media(min-width: 810px) {
-.sidebar-first #content .section {
-  padding-left: 250px; /* LTR */ /* The width + left margin of .region-sidebar-first. */
-  padding-right: 0; /* LTR */
+    .sidebar-first #content .section {
+        padding-left: 250px; /* LTR */ /* The width + left margin of .region-sidebar-first. */
+        padding-right: 0; /* LTR */
+    }
 }
+
+@media(orientation: portrait) {
+    .sidebar-first #content .section {
+        padding-left: 250px; /* LTR */ /* The width + left margin of .region-sidebar-first. */
+        padding-right: 0; /* LTR */
+    }
 }
 
 .sidebar-second #content .section {

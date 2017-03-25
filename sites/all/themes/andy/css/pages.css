@@ -70,6 +70,11 @@ p {
         margin-left: 35%;
     }
 }
+@media(orientation: portrait) {
+    #contact {
+        margin-left: 5%;
+    }
+}
 @media(max-width: 810px) {
     #contact {
         margin-left: 5%;
@@ -472,6 +477,39 @@ Less than 700px breakpoint
 
 }
 
+@media(orientation: portrait) {
+    #site-slogan {
+        margin-left: 2%;
+    }
+    h1#site-name, div#site-name {
+        margin-left: 2%;
+    }
+
+    .node-type-resume .resume {
+        max-width: 500px;    
+    }
+
+    .node-type-resume dt {
+        width: 20%;
+        font-size: 16px;
+    }
+    .node-type-resume dd {
+        margin-right: 10%;
+        margin-left: 30%;
+        float: none !important;
+    }
+
+    .node-type-resume h4 {
+        font-size: 16px;
+        margin: 0 0 6px 0;
+        position: relative;
+    }
+
+    .node-type-resume .resume p {
+        margin: 0 0 12px 0;
+    }
+}
+
 @media(min-width: 701px) {
     .node-type-resume #block-print-ui-print-links {
         margin-top: 40px;
@@ -484,6 +522,11 @@ Less than 700px breakpoint
     }   
 }*/
 @media(max-width: 810px) {
+        h1#site-name, div#site-name {
+        margin-left: 2%;
+    }
+}
+@media(orientation: portrait) {
         h1#site-name, div#site-name {
         margin-left: 2%;
     }
@@ -629,6 +672,11 @@ div.messages {
         margin-left: 25px;
     }
 }
+@media(orientation: portrait) {
+    .resume-section {
+        margin-left: 25px;
+    }
+}
 #edit-parameter-days-settings-help-php {
     display: none;
 }
@@ -640,12 +688,22 @@ div.messages {
         display: none;
     }
 }
+@media(orientation: portrait) {
+    #mm-icon-button {
+        display: none;
+    }
+}
 #mm-icon-button {
     width: 50px;
     height: 50px;
     cursor: pointer;
 }
 @media(max-width: 810px) {
+    #superfish-1 {
+        display: none;
+    }
+}
+@media(orientation: portrait) {
     #superfish-1 {
         display: none;
     }
