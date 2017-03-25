@@ -65,12 +65,12 @@ p {
     position: absolute;
     min-height: 80px;
 }
-@media(min-width: 1200px) {
+@media(min-width: 810px) {
     #contact {
         margin-left: 35%;
     }
 }
-@media(max-width: 1200px) {
+@media(max-width: 810px) {
     #contact {
         margin-left: 5%;
     }
