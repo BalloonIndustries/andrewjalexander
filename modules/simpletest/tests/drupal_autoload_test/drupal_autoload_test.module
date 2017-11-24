@@ -4,8 +4,6 @@
  * @file
  * Test module to check code registry.
  */
-<<<<<<< HEAD
-=======
 
 /**
  * Implements hook_registry_files_alter().
@@ -22,4 +20,3 @@ function drupal_autoload_test_registry_files_alter(&$files, $modules) {
     }
   }
 }
->>>>>>> eedba96669ac0da216e21fe6323a17ed74f8b3f2
