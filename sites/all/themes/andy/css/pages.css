@@ -135,7 +135,7 @@ p {
     div#site-name /* The name of the website */ {
         margin-right: auto;
         font-size: 4em;
-        margin-left: 41%;
+        text-align: center;
         margin-top: -20px;
     }}
 @media(min-width: 800px) and (max-width: 1200px) {
@@ -144,7 +144,7 @@ p {
     div#site-name /* The name of the website */ {
         margin-right: auto;
         font-size: 4em;
-        margin-left: 32%;
+        text-align: center;
         margin-top: -20px;
     }}
 @media(orientation: portrait) {
@@ -154,7 +154,7 @@ p {
         margin-right: auto;
         font-size: 4em;
        /* margin-left: 28%;*/
-       margin-left: 32%;
+      text-align: center;
         margin-top: -20px;
     }}
 
@@ -170,14 +170,14 @@ p {
 }
 @media(min-width: 1200px) {
     #site-slogan /* The slogan (or tagline) of a website */ {
-        margin-left: 37%;
+       text-align: center;
         margin-top:-20px;
         font-weight: 800;
         color: #AEAEAE;
     }}
 @media (max-width: 1200px) {
     #site-slogan {
-        margin-left: 25%;
+        text-align: center;
         margin-top:-20px;
         font-weight: 800;
         color: #AEAEAE;
@@ -720,4 +720,11 @@ div.messages {
 }
 .entitytype-contact_form-form {
     max-width: 50%;
+}
+/* New Changes - maybe break off into separate file */
+
+@media(min-width: 810px) {
+    .region-sidebar-first p, .region-sidebar-first .block {
+        margin: 0px;
+    }
 }
