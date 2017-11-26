@@ -889,3 +889,9 @@ input[type="submit"]:hover, input[type="reset"]:hover, input[type="button"]:hove
     width: 50%;
     margin: -20% 0 0 -25%;
 }
+.sf-menu.sf-style-gray li:last-child a {
+    border-bottom: none;
+}
+.sf-menu.sf-style-gray li:first-child a {
+    border-top: none;
+}
