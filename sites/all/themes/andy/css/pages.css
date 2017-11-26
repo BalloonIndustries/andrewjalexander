@@ -201,6 +201,7 @@ text-align: center;
 }
 #page-title {
         text-align: center;
+        text-transform: uppercase;
 }
 /*
 @media(min-width: 1200px) {
