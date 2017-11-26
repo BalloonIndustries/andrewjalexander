@@ -39,7 +39,7 @@ background-repeat:no-repeat;
 background-position:right bottom; 
 min-height: 700px;
     background-image: url(/sites/default/files/great_wall_red.jpg);
-    background-size: 100%;
+    background-size: cover;
 
 }
 
