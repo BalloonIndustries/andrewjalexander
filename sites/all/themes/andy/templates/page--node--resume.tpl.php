@@ -145,13 +145,12 @@
   <?php print render($page['footer']); ?>
   
   <div id="contact">
-  <span id="contactinfo">Contact Info:</span>
-  <span class="icon"><a target="_blank" href="http://www.facebook.com/andrew.alexander"><img id="fbicon" src="http://www.andrewjalexander.com/sites/all/themes/andy/images/fb.png" style="height:48px;width:48px"/></a></span>
-  <span class="icon"><a target="_blank" href="http://www.linkedin.com/pub/andrew-alexander/14/34/a33"><img id="linkedinicon" src="http://www.andrewjalexander.com/sites/all/themes/andy/images/linkedin.png" style="height:48px;width:48px"/></a></span>
-  <span class="icon"><a target="_blank" href="https://plus.google.com/109646240885561617251/posts"><img id="googleplusicon" src="http://www.andrewjalexander.com/sites/all/themes/andy/images/google+.png" style="height:48px;width:48px"/></a></span>
-  <span class="icon"><a target="_blank" href="https://www.youtube.com/channel/UCoYHoKKtbYtfEtNqOCqEIOA"><img id="youtubeicon" src="http://www.andrewjalexander.com/sites/all/themes/andy/images/youtube.png" style="height:48px;width:48px"/></a></span>
-  <span class="icon"><a target="_blank" href="https://twitter.com/NufiosNews"><img id="twittericon" src="http://www.andrewjalexander.com/sites/all/themes/andy/images/twitter.png" style="height:48px;width:48px"/></a></span>
-  <span class="icon"><a target="_blank" href="http://www.andrewjalexander.com/contact"><img id="emailicon" src="http://www.andrewjalexander.com/sites/all/themes/andy/images/email.png" style="height:48px;width:48px"/></a></span>
+  <span class="icon"><a target="_blank" href="http://www.facebook.com/andrew.alexander"><img id="fbicon" src="http://www.andrewjalexander.com/sites/all/themes/andy/images/fb.png" /></a></span>
+  <span class="icon"><a target="_blank" href="http://www.linkedin.com/pub/andrew-alexander/14/34/a33"><img id="linkedinicon" src="http://www.andrewjalexander.com/sites/all/themes/andy/images/linkedin.png" /></a></span>
+  <span class="icon"><a target="_blank" href="https://plus.google.com/109646240885561617251/posts"><img id="googleplusicon" src="http://www.andrewjalexander.com/sites/all/themes/andy/images/google+.png" /></a></span>
+  <span class="icon"><a target="_blank" href="https://www.youtube.com/channel/UCoYHoKKtbYtfEtNqOCqEIOA"><img id="youtubeicon" src="http://www.andrewjalexander.com/sites/all/themes/andy/images/youtube.png" /></a></span>
+  <span class="icon"><a target="_blank" href="https://twitter.com/NufiosNews"><img id="twittericon" src="http://www.andrewjalexander.com/sites/all/themes/andy/images/twitter.png" /></a></span>
+  <span class="icon"><a target="_blank" href="http://www.andrewjalexander.com/contact"><img id="emailicon" src="http://www.andrewjalexander.com/sites/all/themes/andy/images/email.png" /></a></span>
   </div>
 
 

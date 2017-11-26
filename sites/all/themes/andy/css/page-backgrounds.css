@@ -38,13 +38,22 @@ width: 100%;
 background-repeat:no-repeat;
 background-position:right bottom; 
 min-height: 700px;
+    background-image: url(/sites/default/files/great_wall_red.jpg);
+    background-size: 100%;
 
+}
+
+.node-type-resume #main-wrapper {
+    background-repeat:no-repeat;
+background-position:right bottom; 
+min-height: 700px;
+background-image: none;
 }
 
 @media (max-width: 1200px) {
 
 #main-wrapper {
-background-image: none !important;
+/*background-image: none !important;*/
 }}
 
 #main {
