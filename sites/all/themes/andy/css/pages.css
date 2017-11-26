@@ -899,7 +899,7 @@ input[type="submit"]:hover, input[type="reset"]:hover, input[type="button"]:hove
 /* Possibly remove many of these rules when you switch to a better footer system */
 
 .front #content .section #page-title {
-    top: 50%;
+    top: 30%;
     bottom: 0;
     left: 0;
     right: 0;
@@ -910,18 +910,18 @@ input[type="submit"]:hover, input[type="reset"]:hover, input[type="button"]:hove
 
 @media screen and (max-width: 1050px) {
     .front #content .section #page-title {
-        top: 45%;
+        top: 30%;
     }
 }
 @media screen and (max-width: 740px) {
 .front #content .section #page-title {
-    top: 40%;
+    top: 30%;
 }
 }
 
 @media screen and (max-width: 565px) {
 .front #content .section #page-title {
-    top: 35%; 
+    top: 30%; 
 }
 }
 @media screen and (max-width: 380px) {
