@@ -199,9 +199,6 @@ text-align: center;
 #content .section #page-title {
         margin-left: -250px;
 }
-.front #content .section #page-title {
-    margin-left: 0px;
-}
 #page-title {
         text-align: center;
 }
@@ -883,7 +880,7 @@ input[type="submit"]:hover, input[type="reset"]:hover, input[type="button"]:hove
 }
 }
 
-.front #page-title {
+.front #content .section #page-title {
         position: absolute;
     top: 75%;
     left: 50%;
