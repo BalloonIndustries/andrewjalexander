@@ -881,10 +881,10 @@ input[type="submit"]:hover, input[type="reset"]:hover, input[type="button"]:hove
 }
 
 .front #content .section #page-title {
-        position: absolute;
+    position: absolute;
     top: 75%;
     left: 50%;
     height: 50%;
     width: 50%;
-    margin: -15% 0 0 -25%;
+    margin: -25% 0 0 -25%;
 }
