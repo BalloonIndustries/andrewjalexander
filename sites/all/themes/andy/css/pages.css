@@ -879,3 +879,12 @@ input[type="submit"]:hover, input[type="reset"]:hover, input[type="button"]:hove
     margin: 0 15px;
 }
 }
+
+.front #page-title {
+        position: absolute;
+    top: 75%;
+    left: 50%;
+    height: 50%;
+    width: 50%;
+    margin: -15% 0 0 -25%;
+}
