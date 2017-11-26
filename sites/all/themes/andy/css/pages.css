@@ -199,6 +199,9 @@ text-align: center;
 #content .section #page-title {
         margin-left: -250px;
 }
+.front #content .section #page-title {
+    margin-left: 0px;
+}
 #page-title {
         text-align: center;
 }
