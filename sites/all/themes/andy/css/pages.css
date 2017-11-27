@@ -716,7 +716,7 @@ div.messages {
 }
 @media(min-width: 810px) {
     #mm-icon-button {
-        /*display: none;*/
+        display: none;
     }
 }
 #mm-icon-button {
@@ -737,6 +737,9 @@ div.messages {
 @media(orientation: portrait) {
     #superfish-1 {
         display: none;
+    }
+        #mm-icon-button {
+        display: block;
     }
 }
 @media(max-width: 420px) {
