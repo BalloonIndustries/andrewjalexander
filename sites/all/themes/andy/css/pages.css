@@ -964,6 +964,7 @@ input[type="submit"]:hover, input[type="reset"]:hover, input[type="button"]:hove
         width: 100%;
         height: auto;
         margin-bottom: 20px;
+            text-decoration: underline;
     }
     /* Fix these to have a better structure */
     .node-type-resume #experiencedt {
@@ -978,6 +979,14 @@ input[type="submit"]:hover, input[type="reset"]:hover, input[type="button"]:hove
     }
 }
 
-.print_html a {
+.region-content #block-print-ui-print-links a {
     color: #B51F24;
+    font-weight: 400;
+    text-shadow: none;
+}
+
+.region .print_html a, .region .print_pdf a {
+    font-weight: 400;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    color: #fff;
 }
