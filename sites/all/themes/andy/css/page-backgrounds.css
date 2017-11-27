@@ -47,8 +47,10 @@ background-position:right bottom;
   and (min-device-width: 414px) 
   and (max-device-width: 736px) 
   and (-webkit-min-device-pixel-ratio: 3)
-  and (orientation: portrait) { 
+  and (orientation: portrait) {
+      #main-wrapper {
 min-height: calc(100vh - 370px);
+      }
 }
 
 @media (max-width: 1200px) {
