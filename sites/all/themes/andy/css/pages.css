@@ -946,14 +946,17 @@ input[type="submit"]:hover, input[type="reset"]:hover, input[type="button"]:hove
 .front #content .section #page-title {
     top: 30%; 
 }
-#main-wrapper {
-        background-position: right -10em bottom;
-}
 
 }
 @media screen and (max-width: 380px) {
 .front #content .section #page-title {
     top: 30%;
+}
+}
+
+@media screen and (max-width: 420px) {
+    #main-wrapper {
+        background-position: right -10em bottom;
 }
 }
 @media screen and (max-width: 290px) {
