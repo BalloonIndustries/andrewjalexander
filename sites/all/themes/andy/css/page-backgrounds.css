@@ -38,9 +38,8 @@ width: 100%;
 background-repeat:no-repeat;
 background-position:right bottom; 
 min-height: 700px;
-    background-image: url(/sites/default/files/great_wall_red.jpg);
+    background-image: url(/sites/default/files/great_wall_red_normal.jpg);
     background-size: cover;
-
 }
 
 @media (max-width: 1200px) {
