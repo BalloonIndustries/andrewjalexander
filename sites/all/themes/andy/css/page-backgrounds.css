@@ -39,7 +39,7 @@ background-repeat:no-repeat;
 background-position:right bottom; 
     /*min-height: 100vh;*/
         min-height: calc(100vh - 215px);
-    background-image: url(/sites/default/files/great_wall_red_normal_optimized.jpg);
+    background-image: url(/sites/default/files/great_wall_red_big_more_optimized.jpg);
     background-size: cover;
 }
 
