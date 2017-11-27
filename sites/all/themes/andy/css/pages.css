@@ -917,12 +917,17 @@ input[type="submit"]:hover, input[type="reset"]:hover, input[type="button"]:hove
 .front #content .section #page-title {
     top: 30%;
 }
+
 }
 
 @media screen and (max-width: 565px) {
 .front #content .section #page-title {
     top: 30%; 
 }
+#main-wrapper {
+        background-position: right -10em bottom;
+}
+
 }
 @media screen and (max-width: 380px) {
 .front #content .section #page-title {
@@ -932,6 +937,9 @@ input[type="submit"]:hover, input[type="reset"]:hover, input[type="button"]:hove
 @media screen and (max-width: 290px) {
 .front #content .section #page-title {
         top: 25%;
+}
+#main-wrapper {
+        background-position: right -15em bottom;
 }
 }
 
