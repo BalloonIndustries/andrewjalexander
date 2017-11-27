@@ -716,7 +716,7 @@ div.messages {
 }
 @media(min-width: 810px) {
     #mm-icon-button {
-        display: none;
+        /*display: none;*/
     }
 }
 #mm-icon-button {
@@ -972,8 +972,4 @@ input[type="submit"]:hover, input[type="reset"]:hover, input[type="button"]:hove
     .front #content .section #page-title {
  font-size: 2em;   
     }
-}
-
-#mm-icon-button {
-    margin-left: 200px;
 }
