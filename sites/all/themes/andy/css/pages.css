@@ -203,20 +203,6 @@ text-align: center;
         text-align: center;
         text-transform: uppercase;
 }
-/*
-@media(min-width: 1200px) {
-    .node-type-resume #contentbody {
-        margin-left: 10%;
-    }
-}
-@media(max-width: 1200px) {
-    #contentbody {
-    }
-    .node-type-resume #contentbody {
-        margin-left: -23%;
-    }
-}
-*/
 @media(min-width: 1200px) {
     /*#contentbody {
         width: 60%;
@@ -418,9 +404,6 @@ ul.links li {
     }
     
 }
-/*.node-type-resume #contentbody {
-    width: 60%;
-}*/
 
 .node-type-resume dt {
     font-style: italic;
@@ -482,16 +465,6 @@ Less than 700px breakpoint
 }
 
 @media(orientation: portrait) {
-    /*#site-slogan {
-        margin-left: 2%;
-    }
-    h1#site-name, div#site-name {
-        margin-left: 2%;
-    }*/
-
-    .node-type-resume .resume {
-        /*max-width: 500px;    */
-    }
 
     .node-type-resume dt {
         width: 20%;
@@ -550,6 +523,9 @@ Less than 700px breakpoint
     display: table;
     width: 75%;
     }
+}
+@media(min-width:961px) and (orientation: portrait){
+ width: 95%;   
 }
 .node-type-resume dd {
     margin-right: 10%;
@@ -979,4 +955,29 @@ input[type="submit"]:hover, input[type="reset"]:hover, input[type="button"]:hove
 .mmenu-nav.mm-basic > .mm-list li > a:not(.mm-subopen):not(.mm-subclose):not(.mm-fullsubopen) {
     padding: 30px 20px;
     white-space: normal;
+}
+
+
+@media screen and (max-width: 700px) {
+    .node-type-resume dt {
+        float: none;
+        width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+    }
+    /* Fix these to have a better structure */
+    .node-type-resume #experiencedt {
+        height: auto;
+    }
+    .node-type-resume #contactdt {
+        height: auto;
+    }
+    .node-type-resume dd {
+        width: 95%;
+            margin: 0 0 0 2em;
+    }
+}
+
+.print_html a {
+    color: #B51F24;
 }
