@@ -377,7 +377,7 @@ ul.links li {
     display: inline-block;
     width: 117px;
 }
-.entitytype-contact_form-form label{
+.entitytype-contact_form-form label, #print-mail-form label {
     display: inline-block;
     width: 117px;
     display: none;
@@ -400,7 +400,6 @@ ul.links li {
     box-shadow: 2px 2px 5px 5px #7C7C7C;
     background-color: #F0F0F0;
     margin-bottom: 30px;
-    max-width: 1000px;
 }
 
 @media(max-width: 565px) {
@@ -433,6 +432,8 @@ ul.links li {
     float: left;
     height: 100px;
     border-right: 1px solid #999;
+        text-align: left;
+    padding-left: 1em;
 }
 
 /**
@@ -457,10 +458,6 @@ Less than 700px breakpoint
     h1#site-name, div#site-name {
         margin-left: 2%;
     }*/
-
-    .node-type-resume .resume {
-        max-width: 500px;    
-    }
 
     .node-type-resume dt {
         width: 20%;
@@ -540,7 +537,7 @@ Less than 700px breakpoint
 }*/
 @media(max-width: 960px) {
     .node-type-resume #contentbody {
-        width: 75%;
+        width: 95%;
     }   
     /*h1#site-name, div#site-name {
         margin-left: 19%;
@@ -551,6 +548,7 @@ Less than 700px breakpoint
         float: none;
     margin: 0 auto;
     display: table;
+    width: 75%;
     }
 }
 .node-type-resume dd {
@@ -571,6 +569,30 @@ Less than 700px breakpoint
     font-size: 20px;
     margin: 0 0 6px 0;
     position: relative;
+}
+
+@media(max-width: 570px) {
+    .node-type-resume dt {
+        font-size: 10px;
+    }
+    .node-type-resume h4 {
+    font-size: 14px;
+    }
+    .node-type-resume .resume p {
+        font-size: 14px;
+    }
+}
+
+@media(max-width: 430px) {
+    .node-type-resume dt {
+        font-size: 12px;
+    }
+    .node-type-resume h4 {
+    font-size: 12px;
+    }
+    .node-type-resume .resume p {
+        font-size: 12px;
+    }
 }
 
 .node-type-resume h4 span {
@@ -797,7 +819,7 @@ div.messages {
 .region content .resume a:hover {
     color: inherit;
 }
-.entitytype-contact_form-form textarea {
+.entitytype-contact_form-form textarea, #print-mail-form textarea {
         resize: none;
 }
 
@@ -829,7 +851,7 @@ input[type="submit"]:hover, input[type="reset"]:hover, input[type="button"]:hove
     color: #fff;
     border: 1px solid #FFF;
 }
-.entitytype-contact_form-form .form-required {
+.entitytype-contact_form-form .form-required, #print-mail-form .form-required {
     color: yellow;
 }
 
@@ -855,17 +877,17 @@ input[type="submit"]:hover, input[type="reset"]:hover, input[type="button"]:hove
     text-shadow: none;
 }
 
-.entitytype-contact_form-form input:not(#edit-submit), .entitytype-contact_form-form textarea {
+.entitytype-contact_form-form input:not(#edit-submit), .entitytype-contact_form-form textarea, #print-mail-form textarea, #print-mail-form input:not(.form-submit) {
     height: 4em;
 }
 
-.entitytype-contact_form-form input:not(#edit-submit) {
+.entitytype-contact_form-form input:not(#edit-submit), #print-mail-form input:not(.form-submit) {
     /*Unexplained 4px difference - figure out later */
     width: calc(48em - 4px);
     max-width: calc(100% - 4px);
 }
 
-.entitytype-contact_form-form textarea {
+.entitytype-contact_form-form textarea, #print-mail-form textarea {
     width: 48em;
     display: inline-block;
     max-width: 100%;

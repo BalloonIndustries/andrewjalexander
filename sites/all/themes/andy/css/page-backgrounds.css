@@ -43,13 +43,6 @@ min-height: 700px;
 
 }
 
-.node-type-resume #main-wrapper {
-    background-repeat:no-repeat;
-background-position:right bottom; 
-min-height: 700px;
-background-image: none;
-}
-
 @media (max-width: 1200px) {
 
 #main-wrapper {
