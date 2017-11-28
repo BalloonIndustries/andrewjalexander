@@ -79,13 +79,21 @@ margin-bottom: 0em;
   padding: 0;
 }
 
+@media (min-width: 810px) {
+.sidebar-first.page-projects #content .section {
+    padding-left: 0px;
+}
+}
+.page-projects #content .section #page-title {
+    margin-left: 0px;
+}
+
 @media(min-width: 810px) {
     .sidebar-first #content .section {
         padding-left: 250px; /* LTR */ /* The width + left margin of .region-sidebar-first. */
         padding-right: 0; /* LTR */
     }
 }
-
 .sidebar-second #content .section {
   padding-left: 0; /* LTR */
   padding-right: 200px; /* LTR */ /* The width + right margin of .region-sidebar-second. */
