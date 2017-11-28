@@ -730,6 +730,10 @@ div.messages {
     }
 }
 
+#contact .icon img:hover {
+    filter: brightness(125%);
+}
+
 @media(max-width: 520px) {
     #contact .icon img {
         height: 36px;
