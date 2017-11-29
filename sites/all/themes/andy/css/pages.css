@@ -1168,4 +1168,11 @@ filter: brightness(50%);
     color: #B51F24;
     text-shadow: -1px -1px 0 #FFF, 1px -1px 0 #FFF, -1px 1px 0 #FFF, 1px 1px 0 #FFF;
     line-height: 1em;
+    text-transform: uppercase;
+}
+
+.project-banner {
+    background-color: #AEAEAE;
+    padding-top: 1em;
+    padding-bottom: 1em;
 }
