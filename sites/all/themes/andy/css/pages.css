@@ -1001,21 +1001,28 @@ input[type="submit"]:hover, input[type="reset"]:hover, input[type="button"]:hove
     margin: 0 auto;
 }
 
-.page-projects .view-projects .views-row {
+/*.page-projects .view-projects .views-row {
     margin-top: 1em;
     margin-bottom: 1em;
     cursor: pointer;
-}
+}*/
 
 .page-projects .view-projects .views-column {
     display: inline-block;
-        padding-left: 1em;
-    padding-right: 1em;
-    border-radius: 20px;
-    border: 3px solid #AEAEAE;
-    background-color: #AEAEAE;
+width: 35%;
+margin-left: 1em;
+margin-right: 1em;
+    vertical-align: top;
 }
 
+.page-projects .view-projects  .views-responsive-grid-vertical {
+    text-align: center;
+}
+
+.page-projects .view-projects .views-row {
+    text-align: center;
+}
+/*
 .page-projects .view-projects .views-column:hover {
         border: 3px solid #d9d9d9;
     background-color: #d9d9d9;
@@ -1024,13 +1031,19 @@ input[type="submit"]:hover, input[type="reset"]:hover, input[type="button"]:hove
 .page-projects .view-projects .views-column img {
         object-fit: cover;
     max-height: 108px;
+}*/
+
+.views-field-field-project-image img {
+    width: 100%;
+    height: auto;
 }
 
 .page-projects .view-projects .views-field-title {
-    font-size: 18px;
-    text-align: center;
-    margin-bottom: .5em;
-    
+    text-align: left;
+    width: 35%;
+    margin-top: 5em;
+    position: absolute;
+    margin-left: 3em;
 }
 
 @media(max-width: 810px) {
@@ -1046,6 +1059,7 @@ input[type="submit"]:hover, input[type="reset"]:hover, input[type="button"]:hove
 }
 
 .page-projects .view-projects .views-field-title a {
+        font-size: 40px;
     text-decoration: none;
     color: #B51F24;
     text-shadow: -1px -1px 0 #FFF, 1px -1px 0 #FFF, -1px 1px 0 #FFF, 1px 1px 0 #FFF;
