@@ -1053,6 +1053,10 @@ margin-right: 1em;
 }
 }
 
+.page-projects .view-projects .view-header {
+    margin-left: 250px;
+}
+
 .page-projects .view-projects .views-label-field-project-categories {
         color: #B51F24;
     text-shadow: -1px -1px 0 #FFF, 1px -1px 0 #FFF, -1px 1px 0 #FFF, 1px 1px 0 #FFF;
