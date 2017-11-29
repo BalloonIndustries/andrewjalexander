@@ -697,7 +697,7 @@ div.messages {
 }
 
 .mm-panel a, .mm-panel .mmenu-block-title {
-        font-size: 18px;
+        font-size: 24px;
 }
 #mm-icon-button {
 
@@ -961,7 +961,7 @@ input[type="submit"]:hover, input[type="reset"]:hover, input[type="button"]:hove
     }
 }
 .mmenu-nav.mm-basic > .mm-list li > a:not(.mm-subopen):not(.mm-subclose):not(.mm-fullsubopen) {
-    padding: 30px 20px;
+    padding: 60px 20px;
     white-space: normal;
 }
 
