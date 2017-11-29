@@ -5,11 +5,19 @@ Drupal.behaviors.andy = {
 $('.page-projects .views-field-field-project-image img' ).hover( handlerIn, handlerOut );
       }
 function handlerIn() {
-    $('.page-projects .views-field-field-project-image img').css("filter", "brightness(50%)");
-        $( this ).css( "filter", "unset" );
+        $( this ).css( "filter", "brightness(100%)" );
+        /*
+        var parents = $(this).parentsUntil('.views-column');
+        console.log(parents);
+        var last = parents.last();*/
+    $(this).closest('.views-row').find(".views-field-title").hide();
+        /*console.log(last);
+        $(last + " .views-field-title").hide();
+        console.log(last + " .views-field-title");*/
 }
 function handlerOut() {
-    $('.page-projects .views-field-field-project-image img').css("filter", "unset");
+    $('.page-projects .views-field-field-project-image img').css("filter", "brightness(50%)");
+   $(this).closest('.views-row').find(".views-field-title").show();
 }
 }
 };
