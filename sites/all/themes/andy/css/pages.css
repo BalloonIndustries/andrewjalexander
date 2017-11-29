@@ -1169,7 +1169,7 @@ filter: brightness(50%);
     text-decoration: none;
 }
 
-@media(orientation: portrait) and (orientation: landscape) {
+@media(orientation: portrait), (orientation: landscape) {
 .page-projects .view-projects .views-field-title a {
     color: #B51F24;
     text-shadow: -1px -1px 0 #FFF, 1px -1px 0 #FFF, -1px 1px 0 #FFF, 1px 1px 0 #FFF;
