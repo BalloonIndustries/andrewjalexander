@@ -399,8 +399,8 @@ ul.links li {
         font-size: 3em;
     }
     #mm-icon-button {
-        width: 40px;
-        height: 40px;
+        width: 70px;
+        height: 70px;
     }
     
 }
@@ -695,14 +695,18 @@ div.messages {
         display: none;
     }
 }
+
+.mm-panel a, .mm-panel .mmenu-block-title {
+        font-size: 18px;
+}
 #mm-icon-button {
 
     cursor: pointer;
 }
 @media(min-width: 501px) {
     #mm-icon-button {
-        width: 50px;
-    height: 50px;
+        width: 85px;
+    height: 85px;
     }
 }
 @media(max-width: 810px) {
