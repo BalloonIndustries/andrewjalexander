@@ -1184,3 +1184,8 @@ filter: brightness(50%);
     padding-top: 1em;
     padding-bottom: 1em;
 }
+
+/* Figure out how to remove */
+.typed-cursor {
+    display: none;
+}
