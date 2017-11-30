@@ -225,6 +225,6 @@ function andy_preprocess_page(&$variables) {
   }
   if (drupal_is_front_page()) {
       libraries_load('typed');
-      drupal_add_js(base_path().path_to_theme().'/js/typed-welcome.js');
+      drupal_add_js(base_path().path_to_theme().'/js/typed-welcome.js', array('type' => 'external'));
   }
 }
