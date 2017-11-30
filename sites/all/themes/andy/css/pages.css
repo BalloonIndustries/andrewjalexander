@@ -394,15 +394,29 @@ ul.links li {
     }
 }
 
-@media(max-width: 500px) {
+@media(max-width: 615px) {
     #page-title {
         font-size: 3em;
     }
     #mm-icon-button {
         width: 70px;
         height: 70px;
+        margin-top: -25px;
     }
     
+}
+
+@media(max-width: 530px) {
+    #mm-icon-button {
+        margin-top: 0px;
+    }
+    
+}
+
+@media(max-width: 810px) and (min-width: 616px){
+    #mm-icon-button {
+            margin-top: -15px;
+    }
 }
 
 .node-type-resume dt {
@@ -690,7 +704,7 @@ div.messages {
 #edit-parameter-days-settings-help-token {
     display: none;
 }
-@media(min-width: 810px) {
+@media(min-width: 900px) {
     #mm-icon-button {
         display: none;
     }
@@ -709,7 +723,7 @@ div.messages {
     height: 85px;
     }
 }
-@media(max-width: 810px) {
+@media(max-width: 900px) {
     #superfish-1 {
         display: none;
     }
@@ -722,9 +736,9 @@ div.messages {
         display: block;
     }
 }
-@media(max-width: 420px) {
+@media(max-width: 530px) {
     #page-title {
-            margin-top: 80px;
+            margin-top: 70px;
         text-align: left;
     }
 }
@@ -1011,14 +1025,6 @@ input[type="submit"]:hover, input[type="reset"]:hover, input[type="button"]:hove
     cursor: pointer;
 }*/
 
-.page-projects .view-projects .views-column {
-    display: inline-block;
-width: 40%;
-margin-left: 1em;
-margin-right: 1em;
-    vertical-align: top;
-}
-
 .page-projects .view-projects  .views-responsive-grid-vertical {
     text-align: center;
 }
@@ -1166,9 +1172,15 @@ filter: brightness(50%);
     text-transform: uppercase;
 }
 
-@media(max-width: 1200px) {
-    .page-projects .view-projects .views-field-title a {
+.page-projects .view-projects .views-column {
+    display: inline-block;
+width: 40%;
+margin-left: 1em;
+margin-right: 1em;
+    vertical-align: top;
 }
+
+@media(max-width: 1200px) {
 .page-projects .view-projects .views-column {
     width: 45%;
 }
@@ -1191,7 +1203,7 @@ filter: brightness(50%);
     padding-bottom: 1em;
 }
 
-/* Figure out how to remove */
+/* Figure out how to remove without need to use CSS */
 .typed-cursor {
     display: none;
 }
