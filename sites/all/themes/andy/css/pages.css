@@ -676,12 +676,12 @@ div.messages {
 }*/
 @media(max-width:810px) {
     .resume-section {
-        margin-left: 25px;
+            margin-left: 15px;
     }
 }
 @media(orientation: portrait) {
     .resume-section {
-        margin-left: 25px;
+           margin-left: 15px;
     }
 }
 #edit-parameter-days-settings-help-php {
@@ -724,7 +724,7 @@ div.messages {
 }
 @media(max-width: 420px) {
     #page-title {
-        margin-top: 40px;
+            margin-top: 80px;
         text-align: left;
     }
 }
