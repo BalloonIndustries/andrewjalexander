@@ -508,7 +508,7 @@ Less than 700px breakpoint
         margin-left: 2%;
     }
 }*/
-@media(max-width: 960px) {
+@media(max-width: 1100px) {
     .node-type-resume #contentbody {
         width: 95%;
     }   
@@ -516,7 +516,7 @@ Less than 700px breakpoint
         margin-left: 19%;
     }*/
 }
-@media(min-width:961px) {
+@media(min-width:1101px) {
     .node-type-resume #contentbody {
         float: none;
     margin: 0 auto;
