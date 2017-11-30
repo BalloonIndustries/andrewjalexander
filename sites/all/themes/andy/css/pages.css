@@ -1148,6 +1148,7 @@ img {
   text-align: center;
   display:flex;
   flex-direction:column;
+      pointer-events: none;
 }
 .views-field-title:after,.views-field-title:before {
  content:"";
