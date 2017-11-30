@@ -1,0 +1,31 @@
+<?php
+
+/**
+ * Implements hook_libraries_info().
+ *
+ * For defining external libraries.
+ */
+
+function typed_libraries_info() {
+
+  // A very simple library. No changing APIs (hence, no versions), no variants.
+  // Expected to be extracted into 'sites/all/libraries/simple'.
+  $libraries['typed'] = array(
+    'name' => 'Typed library',
+    'vendor url' => 'http://www.mattboldt.com/demos/typed-js/',
+    'download url' => 'https://github.com/mattboldt/typed.js/',
+'version callback' => 'short_circuit_version',
+    'files' => array(
+      'js' => array('typed.js'), //this can be a path to the file location like array('lib/simple.js')
+    ),
+  );
+
+  return $libraries;
+}
+
+/**
+* Short-circuit the version argument.
+*/
+function short_circuit_version() { 
+  return TRUE;
+}

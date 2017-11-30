@@ -1,0 +1,5 @@
+name = Typed
+description = Allows you to use the Typed library with Drupal 7
+dependencies[] = jquery_update
+dependencies[] = libraries
+core = 7.x

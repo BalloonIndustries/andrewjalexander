@@ -223,4 +223,8 @@ function andy_preprocess_page(&$variables) {
   if (!empty($variables['node']) && !empty($variables['node']->type)) {
     $variables['theme_hook_suggestions'][] = 'page__node__' . $variables['node']->type;
   }
+  //if (drupal_is_front_page()) {
+      libraries_load('typed');
+      drupal_add_js(base_path().path_to_theme().'/js/typed-welcome.js');
+  //}
 }
