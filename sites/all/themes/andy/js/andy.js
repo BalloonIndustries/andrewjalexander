@@ -11,6 +11,7 @@
                         if ($(window).scrollTop() >= $(this).offset().top) {
                             console.log("hits target");
                             console.log(this);
+                            $('.page-projects .views-field-field-project-image img').css("filter", "brightness(50%)");
                             $(this).css("filter", "brightness(100%)");
                         }
                     });
