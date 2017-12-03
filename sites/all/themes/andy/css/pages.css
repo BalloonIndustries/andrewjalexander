@@ -1223,3 +1223,7 @@ margin-right: 1em;
 .typed-cursor {
     display: none;
 }
+
+.page-projects .view-projects .views-row-last {
+    margin-bottom: 200px;
+}
