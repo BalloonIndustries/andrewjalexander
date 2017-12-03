@@ -8,7 +8,7 @@
                 //$('.page-projects .views-field-title .field-content').addClass('project-banner');
                 $(window).on('scroll', function () {
                     $('.page-projects .views-field-field-project-image img').each(function () {
-                        if ($(window).scrollTop() >= $(this).offset().top + 200) {
+                        if ($(window).scrollTop() >= $(this).offset().top - 200) {
                             console.log("hits target");
                             console.log(this);
                             console.log($(window).scrollTop());
