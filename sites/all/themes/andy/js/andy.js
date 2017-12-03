@@ -1,7 +1,7 @@
 (function ($) {
     Drupal.behaviors.andy = {
         attach: function (context, settings) {
-            if (typeof window.orientation !== "undefined") {
+            if (typeof window.orientation === "undefined") {
                 $('.page-projects .views-field-field-project-image img').hover(handlerIn, handlerOut);
             } else {
                 //$('.page-projects .views-field-field-project-image img').css("filter", "brightness(100%)");
