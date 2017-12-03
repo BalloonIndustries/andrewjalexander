@@ -1198,9 +1198,16 @@ margin-right: 1em;
     }
 }
 
-@media only screen and (device-pixel-ratio : 2)
-    and (-webkit-min-device-pixel-ratio : 2) and (orientation: portrait), screen and (device-pixel-ratio : 2)
-    and (-webkit-min-device-pixel-ratio : 2) and (orientation: landscape)
+@media only screen 
+    and (device-width : 375px) 
+    and (device-height : 812px) 
+    and (-webkit-device-pixel-ratio : 3), screen 
+    and (device-width : 375px) 
+    and (device-height : 667px) 
+    and (-webkit-device-pixel-ratio : 2), screen 
+    and (device-width : 414px) 
+    and (device-height : 736px) 
+    and (-webkit-device-pixel-ratio : 3)
  {
     .page-projects .view-projects .views-column {
         width: 95%;
