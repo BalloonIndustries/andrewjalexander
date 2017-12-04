@@ -887,8 +887,8 @@ input[type="submit"]:hover, input[type="reset"]:hover, input[type="button"]:hove
 
 .entitytype-contact_form-form input:not(#edit-submit), #print-mail-form input:not(.form-submit) {
     /*Unexplained 4px difference - figure out later */
-    width: calc(48em - 4px);
-    max-width: calc(100% - 4px);
+    width: calc(48em);
+    max-width: calc(100%);
 }
 
 .entitytype-contact_form-form textarea, #print-mail-form textarea {
