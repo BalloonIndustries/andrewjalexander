@@ -1225,9 +1225,9 @@ and (-webkit-device-pixel-ratio : 3)
         width: 95%;
     }
 
-    .entitytype-contact_form-form input, .entitytype-contact_form-form textarea, .entitytype-contact_form-form p {
+    /*.entitytype-contact_form-form input, .entitytype-contact_form-form textarea, .entitytype-contact_form-form p {
         font-size: 1.3em;
-    }
+    }*/
         .sidebar-first #content .section {
         padding-left: 0px;
         }
