@@ -1225,9 +1225,9 @@ and (-webkit-device-pixel-ratio : 3)
         width: 95%;
     }
 
-    /*.entitytype-contact_form-form input, .entitytype-contact_form-form textarea, .entitytype-contact_form-form p {
+    .entitytype-contact_form-form input, .entitytype-contact_form-form textarea, .entitytype-contact_form-form p {
         font-size: 1.3em;
-    }*/
+    }
         .sidebar-first #content .section {
         padding-left: 0px;
         }
@@ -1236,7 +1236,17 @@ and (-webkit-device-pixel-ratio : 3)
     /*width: calc(48em - 16px);
     max-width: calc(100% - 16px);
 }*/
+    textarea, input {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
 
+}
+textarea, input {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 /* Figure out how to remove without need to use CSS */
