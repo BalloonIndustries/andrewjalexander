@@ -79,7 +79,7 @@ margin-bottom: 0em;
   padding: 0;
 }
 
-@media (min-width: 810px) {
+@media (min-width: 900px) {
 .sidebar-first.page-projects #content .section {
     padding-left: 0px;
 }
