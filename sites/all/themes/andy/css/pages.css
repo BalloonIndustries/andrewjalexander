@@ -1231,6 +1231,12 @@ and (-webkit-device-pixel-ratio : 3)
         .sidebar-first #content .section {
         padding-left: 0px;
         }
+        .entitytype-contact_form-form input:not(#edit-submit), #print-mail-form input:not(.form-submit) {
+    /*Unexplained 4px difference - figure out later */
+    width: calc(48em - 8px);
+    max-width: calc(100% - 8px);
+}
+
 }
 
 /* Figure out how to remove without need to use CSS */
