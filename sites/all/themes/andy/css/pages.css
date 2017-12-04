@@ -59,8 +59,8 @@ p {
 }
 
 #contact {
-width: 100%;
-text-align: center;
+    width: 100%;
+    text-align: center;
     margin-top: 40px;
     position: absolute;
     min-height: 80px;
@@ -139,8 +139,8 @@ text-align: center;
     div#site-name /* The name of the website */ {
         margin-right: auto;
         font-size: 4em;
-       /* margin-left: 28%;*/
-      text-align: center;
+        /* margin-left: 28%;*/
+        text-align: center;
         margin-top: -20px;
     }}
 
@@ -156,7 +156,7 @@ text-align: center;
 }
 @media(min-width: 1200px) {
     #site-slogan /* The slogan (or tagline) of a website */ {
-       text-align: center;
+        text-align: center;
         margin-top:-20px;
         font-weight: 800;
         color: #AEAEAE;
@@ -197,11 +197,11 @@ text-align: center;
 
 
 #content .section #page-title {
-        margin-left: -250px;
+    margin-left: -250px;
 }
 #page-title {
-        text-align: center;
-        text-transform: uppercase;
+    text-align: center;
+    text-transform: uppercase;
 }
 @media(min-width: 1200px) {
     /*#contentbody {
@@ -403,19 +403,19 @@ ul.links li {
         height: 70px;
         margin-top: -25px;
     }
-    
+
 }
 
 @media(max-width: 530px) {
     #mm-icon-button {
         margin-top: 0px;
     }
-    
+
 }
 
 @media(max-width: 810px) and (min-width: 616px){
     #mm-icon-button {
-            margin-top: -15px;
+        margin-top: -15px;
     }
 }
 
@@ -429,7 +429,7 @@ ul.links li {
     float: left;
     height: 100px;
     border-right: 1px solid #999;
-        text-align: left;
+    text-align: left;
     padding-left: 1em;
 }
 
@@ -446,9 +446,9 @@ Less than 700px breakpoint
 **/
 
 @media(max-width: 810px) {
-#content .section #page-title {
+    #content .section #page-title {
         margin-left: 0px;
-}
+    }
     /*#site-slogan {
         margin-left: 2%;
     }
@@ -479,9 +479,9 @@ Less than 700px breakpoint
 }
 
 @media(max-width: 900px) {
-.page-eform-submit-contact-form #content .section #page-title {
+    .page-eform-submit-contact-form #content .section #page-title {
         margin-left: 0px;
-}
+    }
 }
 
 @media(orientation: portrait) {
@@ -539,9 +539,9 @@ Less than 700px breakpoint
 @media(min-width:1101px) {
     .node-type-resume #contentbody {
         float: none;
-    margin: 0 auto;
-    display: table;
-    width: 75%;
+        margin: 0 auto;
+        display: table;
+        width: 75%;
     }
 }
 .node-type-resume dd {
@@ -569,7 +569,7 @@ Less than 700px breakpoint
         font-size: 10px;
     }
     .node-type-resume h4 {
-    font-size: 14px;
+        font-size: 14px;
     }
     .node-type-resume .resume p {
         font-size: 14px;
@@ -581,7 +581,7 @@ Less than 700px breakpoint
         font-size: 12px;
     }
     .node-type-resume h4 {
-    font-size: 12px;
+        font-size: 12px;
     }
     .node-type-resume .resume p {
         font-size: 12px;
@@ -693,12 +693,12 @@ div.messages {
 }*/
 @media(max-width:810px) {
     .resume-section {
-            margin-left: 15px;
+        margin-left: 15px;
     }
 }
 @media(orientation: portrait) {
     .resume-section {
-           margin-left: 15px;
+        margin-left: 15px;
     }
 }
 #edit-parameter-days-settings-help-php {
@@ -714,7 +714,7 @@ div.messages {
 }
 
 .mm-panel a, .mm-panel .mmenu-block-title {
-        font-size: 32px;
+    font-size: 32px;
 }
 #mm-icon-button {
 
@@ -723,7 +723,7 @@ div.messages {
 @media(min-width: 501px) {
     #mm-icon-button {
         width: 85px;
-    height: 85px;
+        height: 85px;
     }
 }
 @media(max-width: 900px) {
@@ -735,13 +735,13 @@ div.messages {
     #superfish-1 {
         display: none;
     }
-        #mm-icon-button {
+    #mm-icon-button {
         display: block;
     }
 }
 @media(max-width: 530px) {
     #page-title {
-            margin-top: 70px;
+        margin-top: 70px;
         text-align: left;
     }
 }
@@ -824,13 +824,13 @@ div.messages {
     color: inherit;
 }
 .entitytype-contact_form-form textarea, #print-mail-form textarea {
-        resize: none;
+    resize: none;
 }
 
 input[type="submit"], input[type="reset"], input[type="button"] {
-        padding: 8px 15px;
-            border-radius: 3px;
-                margin: 0 5px 5px 0;
+    padding: 8px 15px;
+    border-radius: 3px;
+    margin: 0 5px 5px 0;
     font-size: 13px;
     line-height: 13px;
     padding: 8px 15px;
@@ -863,18 +863,18 @@ input[type="submit"]:hover, input[type="reset"]:hover, input[type="button"]:hove
     font-size: 1em;
 }
 #contentbody {
-           text-shadow:
-    -1px -1px 0 #000,
-    1px -1px 0 #000,
-    -1px 1px 0 #000,
-    1px 1px 0 #000;  
+    text-shadow:
+        -1px -1px 0 #000,
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;  
 }
 #page-title {
-               text-shadow:
-    -1px -1px 0 #FFF,
-    1px -1px 0 #FFF,
-    -1px 1px 0 #FFF,
-    1px 1px 0 #FFF;  
+    text-shadow:
+        -1px -1px 0 #FFF,
+        1px -1px 0 #FFF,
+        -1px 1px 0 #FFF,
+        1px 1px 0 #FFF;  
 }
 
 .resume-section #contentbody {
@@ -902,9 +902,9 @@ input[type="submit"]:hover, input[type="reset"]:hover, input[type="button"]:hove
 }
 
 @media screen and (max-width: 810px) {
-#main {
-    margin: 0 15px;
-}
+    #main {
+        margin: 0 15px;
+    }
 }
 
 /*.front #content .section #page-title {
@@ -940,41 +940,41 @@ input[type="submit"]:hover, input[type="reset"]:hover, input[type="button"]:hove
     }
 }
 @media screen and (max-width: 740px) {
-.front #content .section #page-title {
-    top: 30%;
-}
+    .front #content .section #page-title {
+        top: 30%;
+    }
 
 }
 
 @media screen and (max-width: 565px) {
-.front #content .section #page-title {
-    top: 30%; 
-}
+    .front #content .section #page-title {
+        top: 30%; 
+    }
 
 }
 @media screen and (max-width: 380px) {
-.front #content .section #page-title {
-    top: 30%;
-}
+    .front #content .section #page-title {
+        top: 30%;
+    }
 }
 
 @media screen and (max-width: 420px) {
     #main-wrapper {
         background-position: right -10em bottom;
-}
+    }
 }
 @media screen and (max-width: 290px) {
-.front #content .section #page-title {
+    .front #content .section #page-title {
         top: 25%;
-}
-#main-wrapper {
+    }
+    #main-wrapper {
         background-position: right -15em bottom;
-}
+    }
 }
 
 @media screen and (max-width: 350px) {
     .front #content .section #page-title {
- font-size: 2em;   
+        font-size: 2em;   
     }
 }
 .mmenu-nav.mm-basic > .mm-list li > a:not(.mm-subopen):not(.mm-subclose):not(.mm-fullsubopen) {
@@ -989,7 +989,7 @@ input[type="submit"]:hover, input[type="reset"]:hover, input[type="button"]:hove
         width: 100%;
         height: auto;
         margin-bottom: 20px;
-            text-decoration: underline;
+        text-decoration: underline;
     }
     /* Fix these to have a better structure */
     .node-type-resume #experiencedt {
@@ -1000,7 +1000,7 @@ input[type="submit"]:hover, input[type="reset"]:hover, input[type="button"]:hove
     }
     .node-type-resume dd {
         width: 95%;
-            margin: 0 0 0 2em;
+        margin: 0 0 0 2em;
     }
 }
 
@@ -1047,9 +1047,9 @@ input[type="submit"]:hover, input[type="reset"]:hover, input[type="button"]:hove
 }*/
 
 .views-field-field-project-image img {
-        width: 100%;
+    width: 100%;
     height: auto;
-        margin-bottom: 2em;
+    margin-bottom: 2em;
 }
 
 .page-projects .view-projects .views-field-title {
@@ -1062,39 +1062,39 @@ input[type="submit"]:hover, input[type="reset"]:hover, input[type="button"]:hove
 
 @media(max-width: 810px) {
     .page-projects #content .section {
-    text-align: center;
-}
+        text-align: center;
+    }
 
 }
 
 @media(min-width: 901px) {
     .page-projects .view-projects .view-header {
-    margin-left: 250px;
-}
+        margin-left: 250px;
+    }
 }
 
 @media(orientation: portrait) {
     .page-projects .view-projects .view-header {
-    margin-left: 0px;
-}
-.views-field-field-project-image img {
-    width: 100%;
-}
+        margin-left: 0px;
+    }
+    .views-field-field-project-image img {
+        width: 100%;
+    }
 
 
-.page-projects .view-projects .views-column {
-    width: 95%;
-}
+    .page-projects .view-projects .views-column {
+        width: 95%;
+    }
 
-.page-projects .view-projects .views-field-title a {
- font-size: 4em;   
-}
+    .page-projects .view-projects .views-field-title a {
+        font-size: 4em;   
+    }
 }
 
 .page-projects .view-projects .views-label-field-project-categories {
-        color: #B51F24;
+    color: #B51F24;
     text-shadow: -1px -1px 0 #FFF, 1px -1px 0 #FFF, -1px 1px 0 #FFF, 1px 1px 0 #FFF;
-        font-weight: 800;
+    font-weight: 800;
 }
 @media(max-width: 1000px) {
     .page-projects .view-projects .views-field-title a {
@@ -1112,9 +1112,9 @@ input[type="submit"]:hover, input[type="reset"]:hover, input[type="button"]:hove
     text-align: center;
 }
 #imageDetails {
-        font-family: 'Open Sans', sans-serif;
-        font-size: 18px;
-        text-align: center !important;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+    text-align: center !important;
 }
 #imageData #imageDetails {
     width: 100%;
@@ -1134,32 +1134,32 @@ input[type="submit"]:hover, input[type="reset"]:hover, input[type="button"]:hove
 }
 
 img {
-  max-width: 100%;
+    max-width: 100%;
 }
 
 .views-row {
-  position: relative;
-  display:inline-block;
+    position: relative;
+    display:inline-block;
 }
 
 .views-field-title {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  text-align: center;
-  display:flex;
-  flex-direction:column;
-      pointer-events: none;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    text-align: center;
+    display:flex;
+    flex-direction:column;
+    pointer-events: none;
 }
 .views-field-title:after,.views-field-title:before {
- content:"";
- flex:1;
+    content:"";
+    flex:1;
 }
 
 .page-projects .views-field-field-project-image img {
-filter: brightness(50%);
+    filter: brightness(50%);
 }
 
 .views-field-title .field-content {
@@ -1177,16 +1177,16 @@ filter: brightness(50%);
 
 .page-projects .view-projects .views-column {
     display: inline-block;
-width: 40%;
-margin-left: 1em;
-margin-right: 1em;
+    width: 40%;
+    margin-left: 1em;
+    margin-right: 1em;
     vertical-align: top;
 }
 
 @media(min-width: 1200px) {
-.page-projects .view-projects .views-column {
-    width: 45%;
-}
+    .page-projects .view-projects .views-column {
+        width: 45%;
+    }
 }
 
 @media(max-width: 440px) {
@@ -1202,32 +1202,35 @@ margin-right: 1em;
 }
 
 @media only screen 
-    and (device-width : 375px) 
-    and (device-height : 812px) 
-    and (-webkit-device-pixel-ratio : 3), screen 
-    and (device-width : 375px) 
-    and (device-height : 667px) 
-    and (-webkit-device-pixel-ratio : 2), screen 
-    and (device-width : 414px) 
-    and (device-height : 736px) 
-    and (-webkit-device-pixel-ratio : 3)
- {
+and (device-width : 375px) 
+and (device-height : 812px) 
+and (-webkit-device-pixel-ratio : 3), screen 
+and (device-width : 375px) 
+and (device-height : 667px) 
+and (-webkit-device-pixel-ratio : 2), screen 
+and (device-width : 414px) 
+and (device-height : 736px) 
+and (-webkit-device-pixel-ratio : 3)
+{
     .page-projects .view-projects .views-column {
         width: 95%;
     }
-.page-projects .view-projects .views-field-title a {
-    font-size: 6em !important;
-}
-p {
+    .page-projects .view-projects .views-field-title a {
+        font-size: 6em !important;
+    }
+    p {
         font-size: 1.3em;
-}
-#contentbody {
-    width: 95%;
-}
+    }
+    #contentbody {
+        width: 95%;
+    }
 
-input, textarea, .entitytype-contact_form-form p {
-    font-size: 1.3em;
-}
+    input, textarea, .entitytype-contact_form-form p {
+        font-size: 1.3em;
+    }
+        .sidebar-first #content .section {
+        padding-left: 0px;
+        }
 }
 
 /* Figure out how to remove without need to use CSS */
