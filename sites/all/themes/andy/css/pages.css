@@ -1233,8 +1233,8 @@ and (-webkit-device-pixel-ratio : 3)
         }
         .entitytype-contact_form-form input:not(#edit-submit), #print-mail-form input:not(.form-submit) {
     /*Unexplained 4px difference - figure out later */
-    width: calc(48em - 8px);
-    max-width: calc(100% - 8px);
+    width: calc(48em - 12px);
+    max-width: calc(100% - 12px);
 }
 
 }
