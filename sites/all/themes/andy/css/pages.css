@@ -1231,11 +1231,11 @@ and (-webkit-device-pixel-ratio : 3)
         .sidebar-first #content .section {
         padding-left: 0px;
         }
-        .entitytype-contact_form-form input:not(#edit-submit), #print-mail-form input:not(.form-submit) {
+        /*.entitytype-contact_form-form input:not(#edit-submit), #print-mail-form input:not(.form-submit) {
     /*Unexplained 4px difference - figure out later */
-    width: calc(48em - 16px);
+    /*width: calc(48em - 16px);
     max-width: calc(100% - 16px);
-}
+}*/
 
 }
 
