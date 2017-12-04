@@ -88,7 +88,7 @@ margin-bottom: 0em;
     margin-left: 0px;
 }
 
-@media(min-width: 810px) {
+@media(min-width: 901px) {
     .sidebar-first #content .section {
         padding-left: 250px; /* LTR */ /* The width + left margin of .region-sidebar-first. */
         padding-right: 0; /* LTR */
